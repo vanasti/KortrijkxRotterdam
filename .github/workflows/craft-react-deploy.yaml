@@ -14,7 +14,7 @@ env:
   PWA_PATH: ~/subsites/local.tibovanassche.be
   SERVER_PATH: "server"
   CLIENT_WEB_PATH: "client-site"
-  CLIENT_PWA_PATH: "client-app"
+  CLIENT_PWA_PATH: "client-pwa"
 jobs:
   ftp-deploy:
     runs-on: ubuntu-latest

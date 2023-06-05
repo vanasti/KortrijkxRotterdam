@@ -1,0 +1,89 @@
+# https://www.webstoemp.com/blog/github-actions-deploy-craftcms/
+# https://swharden.com/blog/2022-04-24-github-actions-ftp/
+
+name: 🚀 Craft & React Deploy
+on:
+  push:
+    branches:
+      - main 
+  workflow_dispatch:
+  
+env:
+  APP_PATH: ~/craft/stickers
+  WEB_PATH: ~/subsites/integration.tibovanassche.be
+  PWA_PATH: ~/subsites/local.tibovanassche.be
+  SERVER_PATH: "server"
+  CLIENT_WEB_PATH: "client-site"
+  CLIENT_PWA_PATH: "client-app"
+jobs:
+  ftp-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛒 Checkout
+        uses: actions/checkout@v3
+
+      # Comment out this section if you deploy your frontend somewhere else
+      - name: 🏗️ Build React app (Website)
+        run: |
+          cd ${{env.CLIENT_WEB_PATH}}
+          npm install
+          npm run build
+    
+      # Extra part for pwa build
+      - name: 🏗️ Build React app (progressive web app)
+        run: |
+          cd ${{env.CLIENT_PWA_PATH}}
+          npm install
+          npm run build
+
+      # Setup container with private SSH Key (used by rsync)
+      - name: 🔑 Load private SSH key
+        uses: webfactory/ssh-agent@v0.7.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_KEY }}
+
+      # RSYNC
+      # - rsync [options] ~/localdir ssh_user@ssh_host:destination_directory
+      # - exclude web/uploads is there to avoid deleting user uploaded files w/ --delete-after
+      # - StrictHostKeyChecking=no will automatically add new host keys to the user known hosts files.
+      - name: 🚢 Deploy craft project with rsync
+        run: |
+          rsync -azh --delete-after --exclude={"/.env","/.ddev/","/node_modules/","/.git/","/.github/"} -e "ssh -o StrictHostKeyChecking=no" ./${{env.SERVER_PATH}}/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{env.APP_PATH}}
+
+      - name: 🚢 Deploy web files with rsync
+        run: |
+          rsync -azh --delete-after --exclude={"index.php","assets"} -e "ssh -o StrictHostKeyChecking=no" ./${{env.SERVER_PATH}}/web/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{env.WEB_PATH}}
+        
+      - name: 🚢 Deploy pwa files with rsync
+        run: |
+          rsync -azh --delete-after --exclude={"index.php","assets"} -e "ssh -o StrictHostKeyChecking=no" ./${{env.SERVER_PATH}}/web/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{env.PWA_PATH}}
+        
+
+      # Comment out this section if you deploy your frontend somewhere else
+      - name: 🚢 Deploy react (website) build with rsync
+        run: |
+          rsync -azh --delete-after --exclude={"index.php",".htaccess","cpresources"}  -e "ssh -o StrictHostKeyChecking=no" ./${{env.CLIENT__WEB_PATH}}/dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{env.WEB_PATH}}
+
+
+      - name: 🚢 Deploy react (pwa) build with rsync
+        run: |
+          rsync -azh --delete-after --exclude={"index.php",".htaccess","cpresources"}  -e "ssh -o StrictHostKeyChecking=no" ./${{env.CLIENT__WEB_PATH}}/dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{env.PWA_PATH}}
+
+      # execute commands on remote server
+      - name: 💻 Execute SSH commmands on remote server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            cd ${{ env.APP_PATH }}
+            mkdir -p storage
+            composer install --no-interaction --no-progress --optimize-autoloader
+            chmod a+x craft
+            php craft db/backup
+            php craft update/composer-install --interactive=0
+            php craft migrate/all --no-content --interactive=0
+            php craft project-config/apply
+            php craft migrate --track=content --interactive=0
+            php craft clear-caches/all

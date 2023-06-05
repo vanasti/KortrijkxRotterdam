@@ -1,0 +1,19 @@
+columnSuffix: gzhonefc
+contentColumnType: text
+fieldGroup: adc3ec38-c872-4d40-a4ce-f47bb1ccdfef # Common
+handle: person
+instructions: null
+name: person
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  columnType: null
+  initialRows: 4
+  multiline: false
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

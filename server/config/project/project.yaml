@@ -1,12 +1,16 @@
-dateModified: 1685969030
+dateModified: 1685973923
 email:
   fromEmail: tibo.van.assche@student.howest.be
   fromName: kleef
   transportType: craft\mail\transportadapters\Sendmail
 meta:
   __names__:
+    0a565452-9e83-4ae2-861e-b7494f36e986: Default # Default
+    3ddb6261-c728-4f07-a386-3db0e589abb9: person # person
     4ae8d699-ff26-4aa0-94d3-2df056e21d65: 'Public Schema' # Public Schema
+    4d4082b4-66b4-45ad-a5e4-9cba64245fce: settings # settings
     676f0c18-4769-4da1-9dc8-ba359df9ca6a: kleef # kleef
+    69714cb8-a137-4c05-bd74-e4b148008185: stickers # stickers
     3401767e-8c6b-4430-9569-570d5cd600aa: kleef # kleef
     adc3ec38-c872-4d40-a4ce-f47bb1ccdfef: Common # Common
 system:

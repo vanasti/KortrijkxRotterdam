@@ -1,2 +1,4 @@
 isPublic: true
 name: 'Public Schema'
+scope:
+  - 'sites.676f0c18-4769-4da1-9dc8-ba359df9ca6a:read' # kleef

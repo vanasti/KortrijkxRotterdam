@@ -1,12 +1,13 @@
 <IfModule mod_rewrite.c>
 RewriteEngine On
 
-
  RewriteCond %{HTTP:Authorization} ^(.*)
  RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
+
 # prefer index.html above index.php
 RewriteRule ^$ /index.html [L]
 # as long as we aren't requesting /admin or /api, show index.html
+
 RewriteBase /
 RewriteRule ^index\.html$ - [L]
 RewriteCond %{REQUEST_URI} !(admin|api)

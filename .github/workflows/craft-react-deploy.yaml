@@ -56,7 +56,7 @@ jobs:
         
       - name: 🚢 Deploy pwa files with rsync
         run: |
-          rsync -azh --delete-after --exclude={"index.php","assets"} -e "ssh -o StrictHostKeyChecking=no" ./${{env.SERVER_PATH}}/web/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{env.PWA_PATH}}
+          rsync -azh --delete-after --exclude={"index.php","assets",".htaccess"} -e "ssh -o StrictHostKeyChecking=no" ./${{env.SERVER_PATH}}/web/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{env.PWA_PATH}}
         
 
       # Comment out this section if you deploy your frontend somewhere else

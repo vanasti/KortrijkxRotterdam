@@ -62,12 +62,12 @@ jobs:
       # Comment out this section if you deploy your frontend somewhere else
       - name: 🚢 Deploy react (website) build with rsync
         run: |
-          rsync -azh --delete-after --exclude={"index.php",".htaccess","cpresources"}  -e "ssh -o StrictHostKeyChecking=no" ./${{env.CLIENT__WEB_PATH}}/dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{env.WEB_PATH}}
+          rsync -azh --delete-after --exclude={"index.php",".htaccess","cpresources"}  -e "ssh -o StrictHostKeyChecking=no" ./${{env.CLIENT_WEB_PATH}}/dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{env.WEB_PATH}}
 
 
       - name: 🚢 Deploy react (pwa) build with rsync
         run: |
-          rsync -azh --delete-after --exclude={"index.php",".htaccess","cpresources"}  -e "ssh -o StrictHostKeyChecking=no" ./${{env.CLIENT__WEB_PATH}}/dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{env.PWA_PATH}}
+          rsync -azh --delete-after --exclude={"index.php",".htaccess","cpresources"}  -e "ssh -o StrictHostKeyChecking=no" ./${{env.CLIENT_PWA_PATH}}/dist/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{env.PWA_PATH}}
 
       # execute commands on remote server
       - name: 💻 Execute SSH commmands on remote server

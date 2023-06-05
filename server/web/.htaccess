@@ -1,9 +1,19 @@
 <IfModule mod_rewrite.c>
-    RewriteEngine On
-
-    # Send would-be 404 requests to Craft
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_URI} !^/(favicon\.ico|apple-touch-icon.*\.png)$ [NC]
-    RewriteRule (.+) index.php?p=$1 [QSA,L]
+RewriteEngine On
+# prefer index.html above index.php
+RewriteRule ^$ /index.html [L]
+# as long as we aren't requesting /admin or /api, show index.html
+RewriteBase /
+RewriteRule ^index\.html$ - [L]
+RewriteCond %{REQUEST_URI} !(admin|api)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteRule . /index.html [L]
+# go ahead, let craft handle it
+# Send would-be 404 requests to Craft
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !^/(favicon\.ico|apple-touch-icon.*\.png)$ [NC]
+RewriteRule (.+) index.php?p=$1 [QSA,L]
 </IfModule>

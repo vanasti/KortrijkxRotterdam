@@ -1,0 +1,23 @@
+dateModified: 1685969030
+email:
+  fromEmail: tibo.van.assche@student.howest.be
+  fromName: kleef
+  transportType: craft\mail\transportadapters\Sendmail
+meta:
+  __names__:
+    4ae8d699-ff26-4aa0-94d3-2df056e21d65: 'Public Schema' # Public Schema
+    676f0c18-4769-4da1-9dc8-ba359df9ca6a: kleef # kleef
+    3401767e-8c6b-4430-9569-570d5cd600aa: kleef # kleef
+    adc3ec38-c872-4d40-a4ce-f47bb1ccdfef: Common # Common
+system:
+  edition: pro
+  live: true
+  name: kleef
+  schemaVersion: 4.4.0.4
+  timeZone: America/Los_Angeles
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: null
+  photoVolumeUid: null
+  requireEmailVerification: true

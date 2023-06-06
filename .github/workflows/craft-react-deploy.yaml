@@ -9,6 +9,7 @@ on:
   workflow_dispatch:
   
 env:
+  VITE_API_ENDPOINT: https://integration.tibovanassche.be
   APP_PATH: ~/craft/stickers
   WEB_PATH: ~/subsites/integration.tibovanassche.be
   PWA_PATH: ~/subsites/local.tibovanassche.be

@@ -4,10 +4,10 @@ RewriteEngine On
  RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
 # prefer index.html above index.php
 RewriteRule ^$ /index.html [L]
-# as long as we aren't requesting /admin or /api, show index.html
+# as long as we aren't requesting /admin or /|, show index.html
 RewriteBase /
 RewriteRule ^index\.html$ - [L]
-RewriteCond %{REQUEST_URI} !(admin|api)
+RewriteCond %{REQUEST_URI} !(admin|api|cpresources)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-l

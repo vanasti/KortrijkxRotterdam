@@ -1,11 +1,26 @@
-import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import { graphQLRequest } from './js/graphql';
+
+const request = async () => {
+ const { data } = await graphQLRequest(`query MyQuery {
+  stickersEntries {
+    ... on stickers_default_Entry {
+      id
+      title
+      person
+      settings
+    }
+  }
+}
+`);
+  console.log(data);
+  return data;
+}
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
       <div>
@@ -16,18 +31,6 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>App comes here</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }

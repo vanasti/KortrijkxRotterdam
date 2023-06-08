@@ -4,7 +4,7 @@
   "description": "an app that interacts with a printer to photobooth",
   "icons": [
     {
-      "src": "/assets/icons/logo.png",
+      "src": "src/assets/icons/logo.png",
       "type": "image/png",
       "sizes": "280x280"
     }

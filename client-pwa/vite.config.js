@@ -13,4 +13,8 @@ export default defineConfig({
       },
     },
   },
+   build: {
+    // generate manifest.json in outDir
+    manifest: true
+  },
 })

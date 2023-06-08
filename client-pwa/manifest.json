@@ -4,12 +4,12 @@
   "description": "an app that interacts with a printer to photobooth",
   "icons": [
     {
-      "src": "./icons/logo.png",
+      "src": "/icons/logo.png",
       "type": "image/png",
       "sizes": "280x280"
     }
   ],
-  "start_url": "/",
-  "id": "/",
+  "start_url": "../",
+  "id": "../",
   "display": "standalone"
 }

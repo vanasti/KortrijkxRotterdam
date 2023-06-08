@@ -18,6 +18,7 @@ const request = async () => {
   console.log(data);
   return data;
 }
+request();
 
 
 function App() {

@@ -1,13 +1,15 @@
 {
-  "name": "Kleef",
+  "name": "Kleef App for Kortrijk",
+  "short_name": "Kleef",
+  "description": "an app that interacts with a printer to photobooth",
   "icons": [
     {
-      "src": "icons/logo.png",
+      "src": "./icons/logo.png",
       "type": "image/png",
       "sizes": "280x280"
     }
   ],
-  "start_url": "../index.html",
+  "start_url": "/",
+  "id": "/",
   "display": "standalone"
-
 }

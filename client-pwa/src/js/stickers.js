@@ -2,17 +2,17 @@ import { graphQLRequest } from "./graphql"
 
 export const getStickers = async () => {
     const { data } = await graphQLRequest(`query getImage {
-  presetstickersEntries {
-    ... on presetstickers_default_Entry {
+  stickersEntries {
+    ... on stickers_default_Entry {
       id
-      stickerColorway
-      stickerFill
-      stickerImage {
-        url
-      }
       title
+      name: nameSticker
+      settings: settingsSticker
+      color: stickerColorway
+      shape: stickerShape
+      fill: stickerFill
     }
   }
 }`);
-    return data;
+    return data.stickersEntries;
 }

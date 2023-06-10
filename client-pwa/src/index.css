@@ -18,5 +18,12 @@
   height: 100vh;
   display: flex;
   justify-content: center;
+  flex-flow: column;
   align-items: center;
+}
+
+.sticker-item{
+  border: 3px blue solid;
+  padding: 1rem;
+  margin: 1rem;
 }

@@ -8,9 +8,6 @@ const request = async () => {
   stickersEntries {
     ... on stickers_default_Entry {
       id
-      title
-      person
-      settings
     }
   }
 }

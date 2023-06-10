@@ -53,7 +53,7 @@ jobs:
 
       - name: 🚢 Deploy web files with rsync
         run: |
-          rsync -azh --delete-after --exclude={"index.php","assets"} -e "ssh -o StrictHostKeyChecking=no" ./${{env.SERVER_PATH}}/web/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{env.WEB_PATH}}
+          rsync -azh --delete-after --exclude={"index.php","assets",".htaccess"} -e "ssh -o StrictHostKeyChecking=no" ./${{env.SERVER_PATH}}/web/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{env.WEB_PATH}}
         
       - name: 🚢 Deploy pwa files with rsync
         run: |

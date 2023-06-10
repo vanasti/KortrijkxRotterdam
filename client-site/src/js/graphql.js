@@ -1,4 +1,4 @@
-const BASE_URL = import.meta.env.VITE_API_ENDPOINT || "";
+const BASE_URL = import.meta.env.VITE_API_ENDPOINT || "https://kleef.ddev.site";
 
 export const graphQLRequest = async (query, variables = {}) => { 
   const result = await fetch(`${BASE_URL}/api`, {

@@ -1,0 +1,56 @@
+columnSuffix: xpyudqrq
+contentColumnType: string
+fieldGroup: aa639cbd-9bb0-46d2-88ab-73717a3b57fb # Sticker Visual
+handle: stickerFill
+instructions: null
+name: 'Sticker Fill'
+searchable: false
+settings:
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 'Fill 1'
+        -
+          - value
+          - fill1
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Fill 2'
+        -
+          - value
+          - fill2
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Fill 3'
+        -
+          - value
+          - fill3
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Fill 4'
+        -
+          - value
+          - fill4
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\RadioButtons

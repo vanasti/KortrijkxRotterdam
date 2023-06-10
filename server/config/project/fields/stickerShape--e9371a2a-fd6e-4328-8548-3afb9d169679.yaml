@@ -1,0 +1,56 @@
+columnSuffix: xgmdpydm
+contentColumnType: string
+fieldGroup: aa639cbd-9bb0-46d2-88ab-73717a3b57fb # Sticker Visual
+handle: stickerShape
+instructions: null
+name: 'Sticker Shape'
+searchable: false
+settings:
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 'Shape 1'
+        -
+          - value
+          - shape1
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Shape 2'
+        -
+          - value
+          - shape2
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Shape 3'
+        -
+          - value
+          - shape3
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Shape 4'
+        -
+          - value
+          - shape4
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\RadioButtons

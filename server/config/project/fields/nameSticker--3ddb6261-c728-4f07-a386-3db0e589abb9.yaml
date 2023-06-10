@@ -1,9 +1,9 @@
 columnSuffix: gzhonefc
 contentColumnType: text
-fieldGroup: adc3ec38-c872-4d40-a4ce-f47bb1ccdfef # Common
-handle: person
+fieldGroup: 960ed2f7-5864-4beb-a32d-9fd7d64d2a7a # Sticker Meta
+handle: nameSticker
 instructions: null
-name: person
+name: 'Name Sticker'
 searchable: false
 settings:
   byteLimit: null

@@ -5,18 +5,20 @@ import { graphQLRequest } from './js/graphql';
 
 
 const request = async () => {
- const { data } = await graphQLRequest(`query MyQuery {
-  stickersEntries {
-    ... on stickers_default_Entry {
+  const { data: { stickersEntries } } = await graphQLRequest(`query getImage {
+  presetstickersEntries {
+    ... on presetstickers_default_Entry {
       id
-      title
-      person
-      settings
+      stickerColorway
+      stickerFill
+      stickerImage {
+        url
+      }
     }
   }
 }
 `);
-  console.log(data);
+  console.log(stickersEntries[0]);
   return data;
 }
 

@@ -1,0 +1,56 @@
+columnSuffix: neukefpj
+contentColumnType: string
+fieldGroup: aa639cbd-9bb0-46d2-88ab-73717a3b57fb # Sticker Visual
+handle: stickerColorway
+instructions: null
+name: 'Sticker Colorway'
+searchable: false
+settings:
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 'Colorway 1'
+        -
+          - value
+          - colorway1
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Colorway 2'
+        -
+          - value
+          - colorway2
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Colorway 3'
+        -
+          - value
+          - colorway3
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Colorway 4'
+        -
+          - value
+          - colorway4
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\RadioButtons

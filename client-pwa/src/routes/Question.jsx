@@ -1,6 +1,5 @@
 import { Form, redirect, useLoaderData } from "react-router-dom";
 import { getQuestion } from "../js/questions";
-import AnswerOption from "../components/elements/AnswerOption";
 import { useState } from "react";
 import Categorie from "../components/text/Categorie";
 import AnswerCollection from "../components/containers/AnswerCollection";

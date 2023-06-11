@@ -1,4 +1,5 @@
 import { Form, redirect } from "react-router-dom";
+import Statement from "../components/text/Statement";
 
 export const action = async ({request}) => {
     let formData = await request.formData();

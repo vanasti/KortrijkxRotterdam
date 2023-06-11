@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: 8cd7659f-dc83-4952-a789-156ae9e932a5
-dateModified: 1686510395
+dateModified: 1686511635
 email:
   fromEmail: tibo.van.assche@student.howest.be
   fromName: kleef
@@ -12,7 +12,7 @@ fs:
     settings:
       path: '@webroot/uploads/images'
     type: craft\fs\Local
-    url: '@web/uploads/images'
+    url: '@webroot/uploads/images'
 meta:
   __names__:
     0a565452-9e83-4ae2-861e-b7494f36e986: Default # Default

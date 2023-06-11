@@ -4,14 +4,11 @@ scope:
   - 'sites.676f0c18-4769-4da1-9dc8-ba359df9ca6a:read' # kleef
   - 'sections.6b375cf4-73fe-4131-917b-46186b6379cc:read' # presetStickers
   - 'entrytypes.fe71d710-2a54-47fe-bb4d-7f4558d90bf8:read' # Default
+  - 'sections.b4a4bcbb-81be-4b5c-ba1f-021a63e23601:read' # questions
+  - 'entrytypes.cd21c0a1-cba7-4173-938e-99fd9155b70f:read' # Default
   - 'sections.69714cb8-a137-4c05-bd74-e4b148008185:read' # stickers
   - 'entrytypes.0a565452-9e83-4ae2-861e-b7494f36e986:read' # Default
   - 'volumes.3f68486d-3622-415e-90c6-1cf93cb62a98:read' # images
-  - 'sections.6b375cf4-73fe-4131-917b-46186b6379cc:edit' # presetStickers
-  - 'entrytypes.fe71d710-2a54-47fe-bb4d-7f4558d90bf8:edit' # Default
-  - 'entrytypes.fe71d710-2a54-47fe-bb4d-7f4558d90bf8:create' # Default
-  - 'entrytypes.fe71d710-2a54-47fe-bb4d-7f4558d90bf8:save' # Default
-  - 'entrytypes.fe71d710-2a54-47fe-bb4d-7f4558d90bf8:delete' # Default
   - 'sections.69714cb8-a137-4c05-bd74-e4b148008185:edit' # stickers
   - 'entrytypes.0a565452-9e83-4ae2-861e-b7494f36e986:edit' # Default
   - 'entrytypes.0a565452-9e83-4ae2-861e-b7494f36e986:create' # Default

@@ -1,0 +1,24 @@
+defaultPlacement: end
+enableVersioning: true
+handle: questions
+name: questions
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  676f0c18-4769-4da1-9dc8-ba359df9ca6a: # kleef
+    enabledByDefault: true
+    hasUrls: true
+    template: questions/_entry
+    uriFormat: 'questions/{slug}'
+type: channel

@@ -83,6 +83,18 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
+          -
+            elementCondition: null
+            fieldUid: 450a0d36-bbf3-456d-9ea1-afe0d0e73d4e # Sticker Type
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: fd244210-e650-4720-ba5e-2010be3e92bb
+            userCondition: null
+            warning: null
+            width: 100
         name: Content
         uid: 3c733d8b-1dae-47de-a178-ff384cd16e74
         userCondition: null

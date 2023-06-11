@@ -1,9 +1,9 @@
-columnSuffix: gzhonefc
+columnSuffix: elrrlmcf
 contentColumnType: text
-fieldGroup: 960ed2f7-5864-4beb-a32d-9fd7d64d2a7a # Sticker Meta
-handle: nameSticker
+fieldGroup: 92324d39-754a-4693-911f-fd24b88c1275 # Question info
+handle: questionContent
 instructions: null
-name: 'Name Sticker'
+name: 'Question content'
 searchable: false
 settings:
   byteLimit: null

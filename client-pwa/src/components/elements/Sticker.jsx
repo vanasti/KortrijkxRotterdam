@@ -7,8 +7,6 @@ const Sticker = ({settings}) => {
                 <li>{settings.shape}</li>
                 <li>{settings.color}</li>
                 <li>{settings.fill}</li>
-                <li>{settings.name}</li>
-                <li>{settings.settings}</li>
             </ul>
        </div>
     )

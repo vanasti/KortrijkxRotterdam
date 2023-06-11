@@ -1,10 +1,17 @@
-import { useLoaderData } from "react-router";
+import { redirect, useLoaderData } from "react-router";
 import { getStickers } from "../js/stickers";
-import Sticker from "../components/elements/Sticker";
+import { Form } from "react-router-dom";
+import Statement from "../components/text/Statement";
+import StickerWall from "../components/containers/StickerWall";
 
 export const loader = async () => {
     const userStickers = await getStickers();
     return { userStickers };
+}
+
+export const action = () => {
+    console.log("hey");
+    return redirect("/explain");
 }
 
 const Home = () => {
@@ -12,17 +19,17 @@ const Home = () => {
     console.log(userStickers);
     return (
         <>
-            <p>Home</p>
+            <Statement
+                content="Maak een sticker met jouw mening!"
+            />
             <ul>
-                
-                {userStickers.map((sticker) => (
-                    <li key={sticker.id}>
-                        <Sticker
-                            settings={sticker}
-                        />
-                    </li>
-                ))}
+            <StickerWall
+                userStickers={userStickers}
+            />
             </ul>
+            <Form method="post">
+                <button type="submit">Create a sticker</button>
+            </Form>
         </>
     )
 }

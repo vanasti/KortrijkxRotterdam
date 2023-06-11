@@ -1,0 +1,54 @@
+columnSuffix: srlvgvnx
+contentColumnType: text
+fieldGroup: 92324d39-754a-4693-911f-fd24b88c1275 # Question info
+handle: questionAnswers
+instructions: null
+name: 'Question answers'
+searchable: false
+settings:
+  addRowLabel: Hellow
+  columnType: text
+  columns:
+    __assoc__:
+      -
+        - col1
+        -
+          __assoc__:
+            -
+              - heading
+              - Answers
+            -
+              - handle
+              - answers
+            -
+              - width
+              - ''
+            -
+              - type
+              - singleline
+  defaults:
+    -
+      __assoc__:
+        -
+          - col1
+          - 'Answer 1 here'
+    -
+      __assoc__:
+        -
+          - col1
+          - 'Answer 2 here'
+    -
+      __assoc__:
+        -
+          - col1
+          - 'Answer 3 here'
+    -
+      __assoc__:
+        -
+          - col1
+          - 'Answer 4 here'
+  maxRows: 4
+  minRows: 4
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Table

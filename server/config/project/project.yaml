@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: 8cd7659f-dc83-4952-a789-156ae9e932a5
-dateModified: 1686418983
+dateModified: 1686493713
 email:
   fromEmail: tibo.van.assche@student.howest.be
   fromName: kleef
@@ -16,19 +16,25 @@ fs:
 meta:
   __names__:
     0a565452-9e83-4ae2-861e-b7494f36e986: Default # Default
+    1a1c2bcf-a02b-4d6d-a69c-3813e994542e: 'Question type' # Question type
+    1da56d22-2bfa-4cd8-a4ae-d1e74b88970e: 'Question content' # Question content
     2a69dda1-ce75-46be-a52d-e23ef35bd222: 'Sticker image' # Sticker image
-    3ddb6261-c728-4f07-a386-3db0e589abb9: 'Name Sticker' # Name Sticker
     3f68486d-3622-415e-90c6-1cf93cb62a98: images # images
     4ae8d699-ff26-4aa0-94d3-2df056e21d65: 'Public Schema' # Public Schema
-    4d4082b4-66b4-45ad-a5e4-9cba64245fce: 'Settings Sticker' # Settings Sticker
     6b375cf4-73fe-4131-917b-46186b6379cc: presetStickers # presetStickers
+    55ab1228-dcf1-4be4-a70e-7cc9d4bd479e: 'Question answers' # Question answers
+    450a0d36-bbf3-456d-9ea1-afe0d0e73d4e: 'Sticker Type' # Sticker Type
     676f0c18-4769-4da1-9dc8-ba359df9ca6a: kleef # kleef
     960ed2f7-5864-4beb-a32d-9fd7d64d2a7a: 'Sticker Meta' # Sticker Meta
     69714cb8-a137-4c05-bd74-e4b148008185: stickers # stickers
+    92324d39-754a-4693-911f-fd24b88c1275: 'Question info' # Question info
     3401767e-8c6b-4430-9569-570d5cd600aa: kleef # kleef
     aa639cbd-9bb0-46d2-88ab-73717a3b57fb: 'Sticker Visual' # Sticker Visual
     adc3ec38-c872-4d40-a4ce-f47bb1ccdfef: Common # Common
+    b4a4bcbb-81be-4b5c-ba1f-021a63e23601: questions # questions
     c54b5ded-0ff8-4cc5-9fd5-b9b7ebb46d52: 'Sticker Colorway' # Sticker Colorway
+    c6661952-992d-4f79-9f42-969c38cad38b: 'Question number' # Question number
+    cd21c0a1-cba7-4173-938e-99fd9155b70f: Default # Default
     e9371a2a-fd6e-4328-8548-3afb9d169679: 'Sticker Shape' # Sticker Shape
     fa884e65-7b76-453e-aba1-93ac4c48cb4d: 'Sticker Fill' # Sticker Fill
     fe71d710-2a54-47fe-bb4d-7f4558d90bf8: Default # Default

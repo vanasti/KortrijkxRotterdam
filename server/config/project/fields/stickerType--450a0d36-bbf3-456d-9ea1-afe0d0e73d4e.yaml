@@ -1,0 +1,45 @@
+columnSuffix: xcgqykav
+contentColumnType: string
+fieldGroup: 960ed2f7-5864-4beb-a32d-9fd7d64d2a7a # Sticker Meta
+handle: stickerType
+instructions: null
+name: 'Sticker Type'
+searchable: false
+settings:
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Shape
+        -
+          - value
+          - shape
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Shape and fill'
+        -
+          - value
+          - shapeAndFill
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Full '
+        -
+          - value
+          - full
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

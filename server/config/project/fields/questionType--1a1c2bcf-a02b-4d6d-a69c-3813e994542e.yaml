@@ -1,0 +1,34 @@
+columnSuffix: vvmdpudx
+contentColumnType: string
+fieldGroup: 92324d39-754a-4693-911f-fd24b88c1275 # Question info
+handle: questionType
+instructions: null
+name: 'Question type'
+searchable: false
+settings:
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - select
+        -
+          - value
+          - select
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - slider
+        -
+          - value
+          - slider
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

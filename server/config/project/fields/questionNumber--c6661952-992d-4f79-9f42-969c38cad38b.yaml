@@ -1,0 +1,20 @@
+columnSuffix: uslqotwf
+contentColumnType: integer(10)
+fieldGroup: 92324d39-754a-4693-911f-fd24b88c1275 # Question info
+handle: questionNumber
+instructions: null
+name: 'Question number'
+searchable: false
+settings:
+  decimals: 0
+  defaultValue: null
+  max: null
+  min: 0
+  prefix: 'Do not change!'
+  previewCurrency: null
+  previewFormat: decimal
+  size: null
+  suffix: 'Do not change!'
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Number

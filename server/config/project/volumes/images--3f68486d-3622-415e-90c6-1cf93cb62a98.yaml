@@ -39,5 +39,5 @@ name: images
 sortOrder: 2
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
-transformFs: ''
+transformFs: hardDisk
 transformSubpath: ''

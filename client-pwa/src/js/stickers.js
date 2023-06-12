@@ -1,8 +1,5 @@
 import { graphQLRequest } from "./graphql"
 
-
-
-
 export const addAsset = async (video) => {
   console.log(video);
   // const { data } = await graphQLRequest(`mutation MyMutation($title: String, $url: String, $filename: String) {

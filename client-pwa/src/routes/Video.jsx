@@ -15,7 +15,7 @@ export const action = async ({request}) => {
     } else if (video) {
         await addAsset(video);
         // await submitSticker();
-        // localStorage.clear();
+        localStorage.clear();
         console.log('asset added');
     }
     return redirect('/end');

@@ -12,7 +12,6 @@ export const action = async ({request}) => {
         localStorage.clear();
         return redirect('/end');
     }
-    
 }
 
 const FullResult = () => {

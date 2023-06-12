@@ -14,15 +14,13 @@ import FullResult, { action as fullResultAction } from './routes/FullResult';
 import End from './routes/End';
 import Video, { action as videoAction } from './routes/Video';
 
-
-
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
     children: [
       {
-        index: true,
+        path:"home",
         element: <Home />,
         loader: homeLoader,
         action: homeAction,
@@ -51,7 +49,7 @@ const router = createBrowserRouter([
       },
       {
         path: "end",
-        element: <End />
+        element: <End />,
       },
        {
         path: "video",

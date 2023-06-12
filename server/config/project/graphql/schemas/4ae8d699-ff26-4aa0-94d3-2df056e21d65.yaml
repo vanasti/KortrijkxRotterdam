@@ -14,3 +14,6 @@ scope:
   - 'entrytypes.0a565452-9e83-4ae2-861e-b7494f36e986:create' # Default
   - 'entrytypes.0a565452-9e83-4ae2-861e-b7494f36e986:save' # Default
   - 'entrytypes.0a565452-9e83-4ae2-861e-b7494f36e986:delete' # Default
+  - 'volumes.3f68486d-3622-415e-90c6-1cf93cb62a98:edit' # images
+  - 'volumes.3f68486d-3622-415e-90c6-1cf93cb62a98:create' # images
+  - 'volumes.3f68486d-3622-415e-90c6-1cf93cb62a98:save' # images

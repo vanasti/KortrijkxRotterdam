@@ -1,9 +1,28 @@
 import { graphQLRequest } from "./graphql"
 
-export const submitSticker = async () => {
-  const stickerSettings = JSON.parse(localStorage.getItem('settings'));
 
-  
+
+
+export const addAsset = async (video) => {
+  console.log(video);
+  // const { data } = await graphQLRequest(`mutation MyMutation($title: String, $url: String, $filename: String) {
+  //       save_images_Asset(title: $title, _file: {url: $url, filename: $filename}) {
+  //         id
+  //         title
+  //       }
+  //     }`,
+  //     {
+  //       "title": "yes",
+  //       "url": {video},
+  //       "filename": "hello.png"
+  //     }
+  //   );
+}
+
+
+export const submitSticker = async (video) => {
+  const stickerSettings = JSON.parse(localStorage.getItem('settings'));
+  if (video) console.log(video);
   const { data } = await graphQLRequest(`mutation MyMutation($title:String, $color: String, $fill: String, $shape: String) {
   save_stickers_default_Entry(authorId: "1", slug: "-", title:$title, stickerColorway: $color, stickerFill:$fill, stickerShape:$shape) {
     id
@@ -13,10 +32,10 @@ export const submitSticker = async () => {
     stickerShape
   }
 }`, {
-  "title": "user-made sticker",
-  "shape": `shape${stickerSettings[0]}`,
-  "fill": `fill${stickerSettings[1]}`,
-  "color": `colorway${stickerSettings[2]}`,
+    "title": "user-made sticker",
+    "shape": `shape${stickerSettings[0]}`,
+    "fill": `fill${stickerSettings[1]}`,
+    "color": `colorway${stickerSettings[2]}`,
   })
   console.log(data);
   return data;

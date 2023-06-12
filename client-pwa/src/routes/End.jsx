@@ -9,7 +9,7 @@ const End = () => {
 
     useEffect(() => {
     setTimeout(() => {
-      navigate('/home', { replace: true });
+      navigate('/', { replace: true });
     }, 7500);
   }, []);
 

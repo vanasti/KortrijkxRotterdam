@@ -1,8 +1,10 @@
 import { Form, redirect } from "react-router-dom";
 import Camera from "../components/elements/Camera";
-import ControlButton from "../components/elements/ControlButton.Jsx";
 import { useEffect, useRef, useState } from "react";
 import { addAsset, submitSticker } from "../js/stickers";
+import ControlButton from "../components/elements/ControlButton.jsx";
+
+
 
 export const action = async ({request}) => {
     const formData = await request.formData();

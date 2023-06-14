@@ -1,8 +1,10 @@
 import { NavLink } from "react-router-dom";
+import Button from "./Button";
 
 const Navbar = () =>{
     return(
-        <nav>
+        <nav className="navigation">
+            <p>logo</p>
             <ul>
                 <li>
                     <NavLink to={"/"}>
@@ -16,7 +18,7 @@ const Navbar = () =>{
                 </li>
                 <li>
                     <NavLink to={"stickercreation"}>
-                        <button>Maak mijn sticker</button>
+                        <Button text="Maak mijn sticker"/>
                     </NavLink>
                 </li>
             </ul>

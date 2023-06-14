@@ -1,8 +1,8 @@
 import { NavLink } from "react-router-dom";
 import Button from "./Button";
 
-const Navbar = () =>{
-    return(
+const Navbar = () => {
+    return (
         <nav className="navigation">
             <p>logo</p>
             <ul>
@@ -17,8 +17,8 @@ const Navbar = () =>{
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to={"stickercreation"}>
-                        <Button text="Maak mijn sticker"/>
+                    <NavLink to={"stickercreation"} className="nav__button">
+                            Maak mijn sticker
                     </NavLink>
                 </li>
             </ul>

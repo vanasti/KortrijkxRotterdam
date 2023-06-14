@@ -1,7 +1,7 @@
-const ScrollCta = () =>{
+const ScrollCta = (prop) =>{
     return(
-        <div>
-            <p>Hoe werkt het?</p>
+        <div className="scrollCta">
+            <p>{prop.text}</p>
         </div>
     );
 }

@@ -1,4 +1,3 @@
-import Star from '../assets/desktop/Star.svg'
 const Quote = (prop) => {
     return (
         <div className="quote">

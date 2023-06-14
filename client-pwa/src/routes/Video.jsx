@@ -4,18 +4,17 @@ import { useEffect, useRef, useState } from "react";
 import { addAsset, submitSticker } from "../js/stickers";
 import ControlButton from "../components/elements/ControlButton.jsx";
 
-
-
 export const action = async ({request}) => {
     const formData = await request.formData();
     const { video } = Object.fromEntries(formData);
+    
     if (video == "false") {
         await submitSticker();
         localStorage.clear();
     } else if (video) {
-        await addAsset(video);
+        await addAsset(formData);
         // await submitSticker();
-        -localStorage.clear();
+        localStorage.clear();
         console.log('asset added');
     }
     return redirect('/end');
@@ -155,6 +154,7 @@ const Video = () => {
                     <button type="submit">Ik wil toch geen video maken</button>
                 </Form>
             ) : <Form method="post">
+
                     <input type="hidden" name="video" value={recordedVideo} />
                     <button type="submit">Video uploaden</button>
                 </Form>}

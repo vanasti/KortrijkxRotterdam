@@ -1,19 +1,27 @@
 import { graphQLRequest } from "./graphql"
 
-export const addAsset = async (video) => {
-  console.log(video);
-  // const { data } = await graphQLRequest(`mutation MyMutation($title: String, $url: String, $filename: String) {
-  //       save_images_Asset(title: $title, _file: {url: $url, filename: $filename}) {
-  //         id
-  //         title
-  //       }
-  //     }`,
-  //     {
-  //       "title": "yes",
-  //       "url": {video},
-  //       "filename": "hello.png"
-  //     }
-  //   );
+export const addAsset = async (formData) => {
+  const url = "https://tibovanassche.be/uploadvids/upload.php";
+  let data = formData;
+  let object = Object.fromEntries(formData);
+  console.log(object.video);
+  
+  try {
+    data = await fetch(url, {
+      method: 'POST',
+      body: formData
+      });
+  } catch (error) {
+  console.log('There was an error', error);
+  }
+  
+  if (data?.ok) {
+    console.log(data); 
+    // const result = await data.json();
+    // console.log(result);
+} else {
+  console.log(`HTTP Response Code: ${data?.status}`)
+}
 }
 
 

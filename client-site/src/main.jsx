@@ -6,6 +6,8 @@ import {
 import './index.css'
 import Root from './layouts/rootLayout';
 import Home from './routes/Home';
+import Place from './routes/Place';
+import Stickercreation from './routes/CreateSticker';
 //import all routes in here
 
 const router = createBrowserRouter([
@@ -15,7 +17,15 @@ const router = createBrowserRouter([
     children:[
       {
         index:true,
-        element: <Home />
+        element: <Home />,
+      },
+      {
+        path: "place",
+        element: <Place />,
+      },
+      {
+        path: "stickercreation",
+        element: <Stickercreation />
       }
     ]
   },

@@ -1,11 +1,17 @@
 import { Outlet } from "react-router";
+import Navbar from "../components/Navbar";
+import { useNavigation } from "react-router-dom";
 
 const Root = () => {
+    const navigation = useNavigation();
     return (
-        <div className="main">
-            <h1>Hello world</h1>
-            <Outlet />
-        </div>
+        <>
+            <main className="main">
+                <Navbar />
+                <h1>Hello world</h1>
+                <Outlet />
+            </main>
+        </>
     );
 }
 

@@ -1,12 +1,12 @@
-const SecretLabel = (prop) => {
+const SecretLabel = ({title, copy, path}) => {
     return (
         <div>
             <div>
-                <h3>{prop.title}</h3>
+                <h3>{title}</h3>
             </div>
-            <p>{prop.copy}</p>
+            <p>{copy}</p>
             {/* custom source */}
-            <img src={prop.path} alt="smiley" />
+            <img src={path} alt="smiley" />
         </div>
     );
 }

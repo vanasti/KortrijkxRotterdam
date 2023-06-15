@@ -1,6 +1,6 @@
 assets:
   tempVolumeUid: 8cd7659f-dc83-4952-a789-156ae9e932a5
-dateModified: 1686745823
+dateModified: 1686596655
 email:
   fromEmail: tibo.van.assche@student.howest.be
   fromName: kleef
@@ -21,6 +21,7 @@ meta:
     2a69dda1-ce75-46be-a52d-e23ef35bd222: 'Sticker image' # Sticker image
     3f68486d-3622-415e-90c6-1cf93cb62a98: images # images
     4ae8d699-ff26-4aa0-94d3-2df056e21d65: 'Public Schema' # Public Schema
+    4ce973e5-6a9b-4fca-970f-0feb42271ba0: Default # Default
     6b375cf4-73fe-4131-917b-46186b6379cc: presetStickers # presetStickers
     55ab1228-dcf1-4be4-a70e-7cc9d4bd479e: 'Question answers' # Question answers
     450a0d36-bbf3-456d-9ea1-afe0d0e73d4e: 'Sticker Type' # Sticker Type
@@ -36,6 +37,7 @@ meta:
     c54b5ded-0ff8-4cc5-9fd5-b9b7ebb46d52: 'Sticker Colorway' # Sticker Colorway
     c6661952-992d-4f79-9f42-969c38cad38b: 'Question number' # Question number
     cd21c0a1-cba7-4173-938e-99fd9155b70f: Default # Default
+    e608cd8d-8672-4dd1-8c1d-a1b2abfed433: videos # videos
     e9371a2a-fd6e-4328-8548-3afb9d169679: 'Sticker Shape' # Sticker Shape
     fa884e65-7b76-453e-aba1-93ac4c48cb4d: 'Sticker Fill' # Sticker Fill
     fe71d710-2a54-47fe-bb4d-7f4558d90bf8: Default # Default

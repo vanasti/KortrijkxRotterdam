@@ -6,7 +6,7 @@ const SecretLabel = (prop) => {
             </div>
             <p>{prop.copy}</p>
             {/* custom source */}
-            <img src="" alt="smiley" />
+            <img src={prop.path} alt="smiley" />
         </div>
     );
 }

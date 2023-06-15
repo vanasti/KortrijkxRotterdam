@@ -2,9 +2,7 @@ import { Link } from "react-router-dom";
 const Button = (prop) => {
     return (
         <>
-            <button className="button">
-                <Link to={prop.link}>{prop.text}</Link>
-            </button>
+                <Link className="button" to={prop.link}>{prop.text}</Link>
         </>
     );
 }

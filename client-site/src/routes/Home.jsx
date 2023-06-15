@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import Quote from "../components/Quote";
 import Button from "../components/Button";
-import Theme from "../components/Theme";
 import ScrollCta from "../components/ScrollCta";
 import BodyCopy from "../components/BodyCopy";
 import SecretLabel from "../components/SecretLabel";
@@ -12,7 +11,6 @@ const Home = () => {
                 <div className="container__header">
                     <Quote className="quote" lineOne="Maak een sticker" lineTwo="Met jouw" lineThree="Eigen mening" />
                     <canvas></canvas>
-                    <Theme theme="Muziek" />
                     <Button text="Ik wil mijn sticker maken" link="stickercreation" />
                 </div>
                 <ScrollCta text="Hoe werkt het?" />

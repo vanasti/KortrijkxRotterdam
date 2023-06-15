@@ -147,15 +147,13 @@ canvas{
     place-self: center;
     padding: var(--gap-miniscule) var(--gap-small);
     margin: var(--gap-small) var(--gap-medium);
-}
-
-.button > *{
     text-decoration: none;
-    color: var(--color-black);
+        color: var(--color-black);
 }
 
 .button:hover{
     background-color: var(--color-black);
+    color: var(--color-orange);
 }
 
 .scrollCta{

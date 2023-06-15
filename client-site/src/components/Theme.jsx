@@ -6,6 +6,7 @@ const Theme = (prop) => {
             <div className="theme__flex">
             <p>Invasie thema</p>
             <p>{prop.theme}</p>
+            <p>blabla</p>
             </div>
         </div>
     );

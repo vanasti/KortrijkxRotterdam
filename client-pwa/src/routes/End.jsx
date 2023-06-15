@@ -6,11 +6,10 @@ import { useEffect } from "react";
 
 const End = () => {
     const navigate = useNavigate();
-
     useEffect(() => {
-    // setTimeout(() => {
-    //   navigate('/', { replace: true });
-    // }, 7500);
+    setTimeout(() => {
+      navigate('/', { replace: true });
+    }, 7000);
   }, []);
 
 

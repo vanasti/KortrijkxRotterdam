@@ -26,10 +26,32 @@ export const addAsset = (blob) => {
   const fd = new FormData();
   fd.append('blob', blob, 'recording.webm');
   const randomString = (Math.round(Math.random() * 10000)).toString();
+  localStorage.setItem('randomNumber', randomString);
   fd.append('name', randomString);
   sendDataToServer(fd);
 }
 
+
+export const submitVideo = async () => {
+  const randomString = localStorage.getItem("randomNumber");
+  const variables = {
+    "title": `${randomString}-video`,
+    "video": `https://tibovanassche.be/uploadvids/vids/video${randomString}.webm`,
+    "slug": randomString
+  }
+  console.log(variables);
+  const { data } = await graphQLRequest(`mutation MyMutation($title: String, $video: String, $slug: String) {
+  save_videos_default_Entry(title: $title, video: $video, slug: $slug, authorId:"1") {
+    id
+    title
+    video
+  }
+}
+`, variables); 
+  
+  console.log(data);
+  return data;
+}
 
 export const submitSticker = async (video) => {
   const stickerSettings = JSON.parse(localStorage.getItem('settings'));

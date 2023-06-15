@@ -1,7 +1,7 @@
 import { Form, redirect } from "react-router-dom";
 import Camera from "../components/elements/Camera";
 import { useEffect, useRef, useState } from "react";
-import { addAsset, submitSticker } from "../js/stickers";
+import { addAsset, submitSticker, submitVideo } from "../js/stickers";
 import ControlButton from "../components/elements/ControlButton.jsx";
 
 export const action = async ({ request }) => {
@@ -12,8 +12,8 @@ export const action = async ({ request }) => {
         await submitSticker();
         localStorage.clear();
     } else if (video) {
-        await addAsset(formData);
-        // await submitSticker();
+        await submitSticker();
+        await submitVideo()
         localStorage.clear();
         console.log('asset added');
     }
@@ -32,6 +32,7 @@ const Video = () => {
     const [recordedVideo, setRecordedVideo] = useState(null);
     const videoRef = useRef(null);
     const chunksRef = useRef([]);
+    
     const mediaRecorderRef = useRef(0);
     
     const getUserMedia = async () => {

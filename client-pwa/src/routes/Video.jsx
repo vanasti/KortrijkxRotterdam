@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { addAsset, submitSticker } from "../js/stickers";
 import ControlButton from "../components/elements/ControlButton.jsx";
 
-export const action = async ({request}) => {
+export const action = async ({ request }) => {
     const formData = await request.formData();
     const { video } = Object.fromEntries(formData);
     
@@ -99,6 +99,8 @@ const Video = () => {
         
         mediaRecorderRef.current.onstop = () => {
             const recordedBlob = new Blob(chunksRef.current, { type: 'video/webm' });
+            console.log(recordedBlob);
+            addAsset(recordedBlob);
             setRecordedVideo(URL.createObjectURL(recordedBlob));
             setRecordingState({
                 ...recordingState,
@@ -154,7 +156,6 @@ const Video = () => {
                     <button type="submit">Ik wil toch geen video maken</button>
                 </Form>
             ) : <Form method="post">
-
                     <input type="hidden" name="video" value={recordedVideo} />
                     <button type="submit">Video uploaden</button>
                 </Form>}

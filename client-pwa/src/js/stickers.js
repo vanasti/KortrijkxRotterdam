@@ -1,15 +1,12 @@
 import { graphQLRequest } from "./graphql"
 
-export const addAsset = async (formData) => {
-  const url = "https://tibovanassche.be/uploadvids/upload.php";
-  let data = formData;
-  let object = Object.fromEntries(formData);
-  console.log(object.video);
-  
+const sendDataToServer = async (fd) => {
+  let data;
+  const url = "https://tibovanassche.be/uploadvids/upload.php"; 
   try {
     data = await fetch(url, {
       method: 'POST',
-      body: formData
+      body: fd
       });
   } catch (error) {
   console.log('There was an error', error);
@@ -22,6 +19,15 @@ export const addAsset = async (formData) => {
 } else {
   console.log(`HTTP Response Code: ${data?.status}`)
 }
+}
+
+export const addAsset = (blob) => {
+  console.log(blob);
+  const fd = new FormData();
+  fd.append('blob', blob, 'recording.webm');
+  const randomString = (Math.round(Math.random() * 10000)).toString();
+  fd.append('name', randomString);
+  sendDataToServer(fd);
 }
 
 

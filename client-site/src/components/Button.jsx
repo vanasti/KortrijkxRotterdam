@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-const Button = (prop) => {
+const Button = ({link, text}) => {
     return (
         <>
-                <Link className="button" to={prop.link}>{prop.text}</Link>
+                <Link className="button" to={link}>{text}</Link>
         </>
     );
 }

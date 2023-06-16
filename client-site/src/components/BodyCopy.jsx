@@ -1,10 +1,10 @@
-const BodyCopy = (prop) =>{
+const BodyCopy = ({title, copy, secondcopy}) =>{
     return(
-        <div>
-            <h2>{prop.title}</h2>
+        <div className="bodyCopy">
+            <h2 className="title title--black">{title}</h2>
             <div className="container__body">
-            <p>{prop.copy}</p>
-            <p>{prop.secondcopy}</p>
+            <p className="copy">{copy}</p>
+            <p className="copy">{secondcopy}</p>
             </div>
         </div>
     );

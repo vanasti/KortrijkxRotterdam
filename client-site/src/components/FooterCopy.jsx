@@ -1,13 +1,13 @@
-const FooterCopy = (prop) => {
+const FooterCopy = ({title, subtitle, copy, secondcopy}) => {
     return (
-        <div>
-            <h3>{prop.title}</h3>
+        <div className="footerCopy">
+            <h3>{title}</h3>
             <div>
-                <p>{prop.subtitle}</p>
-                <ul>
-                    <li>{prop.copy}</li>
-                    <li>{prop.secondcopy}</li>
-                </ul>
+                <p>{subtitle}</p>
+                <div>
+                    <p>{copy}</p>
+                    <p>{secondcopy}</p>
+                </div>
             </div>
         </div>
     );

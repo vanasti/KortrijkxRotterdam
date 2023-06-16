@@ -1,7 +1,7 @@
-const Label = (prop) => {
+const Label = ({text}) => {
     return (
         <>
-            <p>{prop.text}</p>
+            <p>{text}</p>
         </>
     );
 }

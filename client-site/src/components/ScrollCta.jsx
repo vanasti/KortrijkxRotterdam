@@ -1,7 +1,7 @@
-const ScrollCta = (prop) =>{
+const ScrollCta = ({text}) =>{
     return(
         <div className="scrollCta">
-            <p>{prop.text}</p>
+            <p>{text}</p>
         </div>
     );
 }

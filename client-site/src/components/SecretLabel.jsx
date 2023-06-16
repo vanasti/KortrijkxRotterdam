@@ -1,12 +1,11 @@
-const SecretLabel = ({title, copy, path}) => {
+const SecretLabel = ({ title, copy }) => {
     return (
         <div className="secretlabel">
             <div>
-                <h3>{title}</h3>
+                <h2 className="title__black">{title}</h2>
             </div>
-            <p>{copy}</p>
+            <p className="copy copy--br">{copy}</p>
             {/* custom source */}
-            <img src={path} alt="smiley" />
         </div>
     );
 }

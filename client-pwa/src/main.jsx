@@ -4,6 +4,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import './reset.css'
 import './index.css'
 import Root from './layouts/rootLayout';
 import Home, { loader as homeLoader, action as homeAction } from './routes/Home';

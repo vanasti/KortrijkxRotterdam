@@ -1,11 +1,15 @@
-const ControlButton = ({onTouch, type}) => {
+const ControlButton = ({onTouch, type,className}) => {
     return (
         <>
-        <div
-            onTouchStart={onTouch}
-        >
-            <p>{type}</p>
-        </div>
+            <div 
+                className={className}
+                onTouchStart={onTouch}
+            >
+                <p>{type}</p>
+                {type !== "start recording" ? (
+                    <div className="stop__icon"></div>
+                ): ""}
+            </div>
         </>
     )
 }

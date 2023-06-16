@@ -2,7 +2,7 @@ const Camera = ({ videoSource }) => {
     return (
         <>
             {videoSource ? (
-                <video autoPlay ref={videoSource}></video>
+                <video className="video__camera" autoPlay ref={videoSource}></video>
             ) : "No video available"
             }
         </>

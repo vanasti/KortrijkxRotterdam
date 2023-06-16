@@ -6,7 +6,6 @@ const Quote = (prop) => {
                 <h2 className="title__orange">{prop.lineTwo}</h2>
             </div>
             <h2 className="title__white">{prop.lineThree}</h2>
-            <p>op onze vragen</p>
         </div>
     );
 }

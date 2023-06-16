@@ -5,6 +5,7 @@ import Statement from "../components/text/Statement";
 import StickerWall from "../components/containers/StickerWall";
 
 export const loader = async () => {
+    localStorage.clear();
     const userStickers = await getStickers();
     return { userStickers };
 }
@@ -20,15 +21,45 @@ const Home = () => {
     return (
         <>
             <Statement
-                content="Maak een sticker met jouw mening!"
+                variant={true}
+                lineOne={{
+                    partOne: {
+                        content: "MAAK",
+                        big: false
+                    }, 
+                    partTwo: {
+                        content: "EEN",
+                        big: false
+                    },
+                }}
+                lineTwo={{
+                    partOne: {
+                        content: "STICKER",
+                        big: true
+                    }, 
+                    partTwo: {
+                        content: "MET",
+                        big: false
+                    },
+                }}
+                lineThree={{
+                    partOne: {
+                        content: "JOUW",
+                        big: false
+                    }, 
+                    partTwo: {
+                        content: "MENING",
+                        big: true
+                    },
+                }}
             />
             <ul>
             <StickerWall
                 userStickers={userStickers}
             />
             </ul>
-            <Form method="post">
-                <button type="submit">Create a sticker</button>
+            <Form className="button__container" method="post">
+                <button className="button" type="submit">Maak een sticker!</button>
             </Form>
         </>
     )

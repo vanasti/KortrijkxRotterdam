@@ -14,5 +14,22 @@ export const getQuestion = async (id) => {
     }
   }
 }`,{ "number": id });
-    return data.questionsEntries[0];
+  return data.questionsEntries[0];
+  
+}
+
+export const getAnswers = async (questionId) => {
+  const { data } = await graphQLRequest(`query getQuestion($number: [QueryArgument]) {
+  questionsEntries(questionNumber: $number) {
+    ... on questions_default_Entry {
+      id
+      questionAnswers {
+        answers
+      }
+    }
+  }
+}`,
+    { "number": questionId });
+  console.log(data);
+  return data.questionsEntries[0].questionAnswers;
 }

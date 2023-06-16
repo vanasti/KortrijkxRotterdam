@@ -115,7 +115,7 @@ const Video = () => {
             recording: true,
         });
 
-        setTimeout(handleStopRecording, 5000);
+        setTimeout(handleStopRecording, 10000);
     }
 
     const handleStopRecording = () => {
@@ -125,22 +125,29 @@ const Video = () => {
     }
     return (
         <>
-            
             {recordingState.acces && !recordedVideo ? (
                 <>
                     <Camera
                         videoSource={videoRef}
                     />
+                    <div className="progress-bar"></div>
                     {!recordingState.recording ? (
                         <ControlButton
                             onTouch={handleStartRecording}
                             type="start recording"
+                            className="start__button"
                         />
                     ) : (
-                        <ControlButton
-                            onTouch={handleStopRecording}
-                            type="Stop Recording"
-                        />
+                            
+                            <>
+                                <div className="progress">
+                                    <div className="bar"></div>
+                                </div>
+                                <ControlButton
+                                    className="stop__button"
+                                    onTouch={handleStopRecording}
+                                />
+                            </>
                     )}
                 </>
             ) : (recordedVideo && recordingState.acces ? (
@@ -149,17 +156,23 @@ const Video = () => {
                             <source src={recordedVideo} type="video/webm" />
                         </video>
                     </>
-            ) : <p>No camera detected, please connect one</p>)
+            ) : <p>Geen camera verbonden, contacteer STAD KORTRIJK</p>)
             }
             {!recordedVideo ? (
                 <Form method="post">
                     <input type="hidden" name="video" value="false"/>
-                    <button type="submit">Ik wil toch geen video maken</button>
+                    <button className="neg__button" type="submit">Ik wil toch geen video maken</button>
                 </Form>
-            ) : <Form method="post">
-                    <input type="hidden" name="video" value={recordedVideo} />
-                    <button type="submit">Video uploaden</button>
-                </Form>}
+            ) : (<>
+                    <Form method="post">
+                        <input type="hidden" name="video" value={recordedVideo} />
+                        <button className="upload__button" type="submit">Video uploaden</button>
+                    </Form>
+                    <Form method="post">
+                        <input type="hidden" name="video" value="false"/>
+                        <button className="neg__button" type="submit">Ik wil toch geen video maken</button>
+                    </Form>
+                </>)}
             
         </>
     )

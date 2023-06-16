@@ -18,18 +18,22 @@ export const action = async ({ request, params }) => {
 export const loader = async ({params}) => {
     const question = await getQuestion(params.questionId);
     let categorie;
+    let explain;
     if (params.questionId == 1) {
-        categorie = "Vorm";
+        categorie = "VORM";
+        explain = "Deze vraag bepaalt dé geheime vorm van de sticker";
     } else if (params.questionId == 2) { 
-        categorie = "Patroon";
+        categorie = "PATROON";
+        explain = "Deze vraag bepaalt hét geheime patroon voor de sticker";
     }else if (params.questionId == 3) { 
-        categorie = "Kleur";
+        categorie = "KLEUR";
+        explain = "Deze vraag bepaalt een geheim kleurenpalet voor de stickerr";
     }
-    return { question, categorie };
+    return { question, categorie, explain };
 }
 
 const Question = () => {
-    const { question, categorie } = useLoaderData();
+    const { question, categorie, explain } = useLoaderData();
     const answers = question.answers;
     const [selectedAnswer, setSelectedAnswer] = useState(0);
     let canSubmit;
@@ -56,27 +60,34 @@ const Question = () => {
     return (
         <>  
             <Categorie
-                    content={categorie}
+                content={categorie}
+                icon={true}
             />
-            <h2>{question.content}</h2>
+            <p className="question__extra">{explain}</p>
             {!sliderNeeded ? (
-            <>
-                <AnswerCollection
-                    answers={answers}
-                    selectedAnswer={selectedAnswer}
-                    onTouch={handleAnswerTap}
-                />
+                <>
+                    <h2 className="question__content">{question.content}</h2>
+                    <AnswerCollection
+                        answers={answers}
+                        selectedAnswer={selectedAnswer}
+                        onTouch={handleAnswerTap}
+                    /><div id="myProgress">
+  <div id="myBar"></div>
+</div>
             </>
-        ) : (<>
-                <Slider
-                    onChange={handleSliderInput}
-                    max={4}
-                    answer={selectedAnswer}
-                />
-        </>)}
-            <Form method="post" >
+            ) : (<>
+                    <p className="slider__question">{question.content}</p>
+                    <img class="sliert" src='/graphics/sliert.svg'></img>
+                    <Slider
+                        onChange={handleSliderInput}
+                        max={3}
+                        answer={selectedAnswer}
+                    />
+                </>
+            )}
+            <Form method="post">
                 <input type="hidden" name="selectedValue" value={selectedAnswer} />
-                <button disabled={!canSubmit ?? true} type="submit">Submit</button>
+                <button disabled={!canSubmit ?? true} type="submit">Volgende</button>
             </Form>
         </>
     )

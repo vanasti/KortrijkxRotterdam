@@ -29,6 +29,7 @@
 body {
     margin: 0;
     color: var(--color-black);
+    font-family: sans-serif;
 }
 
 h1 {
@@ -38,13 +39,16 @@ h1 {
 .navigation {
     background-color: var(--color-orange);
     color: var(--color-black);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding-inline: var(--gap-enormous);
     inline-size: 100vw;
     top: 0;
     left: 0;
+}
+
+.navigation>div {
+    padding-inline: var(--gap-medium);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .navigation,
@@ -74,13 +78,6 @@ li>* {
     color: var(--color-white);
     padding: var(--gap-miniscule) var(--gap-medium);
 }
-
-/* .button::before{
-    content: url(../../public/desktop/star.svg);
-    display: inline-block;
-    width: 5px;
-    aspect-ratio: 1/1;
-} */
 
 .main {
     margin-block-start: 3rem;
@@ -138,9 +135,9 @@ li>* {
     content: url(../../public/desktop/orange.svg);
     display: inline-block;
     position: absolute;
-    bottom: 20%;
-    left: -30%;
-    transform: rotate(40deg);
+    bottom: 40%;
+    right: 55%;
+    transform: scale(.8) rotate(45deg);
     overflow: hidden;
     z-index: -1;
 }
@@ -163,6 +160,7 @@ canvas {
 .button::after {
     content: url(../../public/desktop/circlestar.svg);
     position: inherit;
+    transform: scale(var(--scale-svg-small));
 }
 
 .button {
@@ -172,7 +170,8 @@ canvas {
     justify-content: center;
     grid-column: 1/ span 3;
     grid-row: 3;
-    font-size: 2rem;
+    font-size: var(--fontsize-small);
+    font-weight: bold;
     background-color: var(--color-orange);
     border: var(--color-black) solid var(--bordsize-small);
     place-self: center;
@@ -187,7 +186,8 @@ canvas {
     color: var(--color-orange);
 }
 
-.scrollCta::before, .scrollCta::after{
+.scrollCta::before,
+.scrollCta::after {
     content: url(../../public/desktop/tripletriangle.svg);
     transform: scale(var(--scale-svg-small));
 }
@@ -201,6 +201,7 @@ canvas {
     justify-content: space-between;
     z-index: 2;
 }
+
 .scrollCta>p::before,
 .scrollCta>p::after {
     content: url(../../public/desktop/downtriangle.svg);
@@ -208,15 +209,25 @@ canvas {
     transform: scale(var(--scale-svg-small));
 }
 
-.scrollCta > p{
+.scrollCta>p {
     display: flex;
     align-items: center;
     gap: var(--gap-miniscule);
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 .section {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    background-color: var(--color-blue);
+}
+
+.secretlabel{
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--color-blue);
+    filter: drop-shadow(13px 12px 0 var(--color-black));
 }
 
 .container__footer {

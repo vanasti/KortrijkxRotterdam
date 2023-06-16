@@ -1,6 +1,6 @@
 const SecretLabel = ({title, copy, path}) => {
     return (
-        <div>
+        <div className="secretlabel">
             <div>
                 <h3>{title}</h3>
             </div>

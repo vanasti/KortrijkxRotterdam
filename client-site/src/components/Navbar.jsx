@@ -4,24 +4,26 @@ import Button from "./Button";
 const Navbar = () => {
     return (
         <nav className="navigation">
-            <p>logo</p>
-            <ul>
-                <li>
-                    <NavLink to={"/"}>
-                        StickerWall
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to={"place"}>
-                        Where to find us
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to={"stickercreation"} className="nav__button">
+            <div>
+                <p>logo</p>
+                <ul>
+                    <li>
+                        <NavLink to={"/"}>
+                            StickerWall
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to={"place"}>
+                            Where to find us
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to={"stickercreation"} className="nav__button">
                             Maak mijn sticker
-                    </NavLink>
-                </li>
-            </ul>
+                        </NavLink>
+                    </li>
+                </ul>
+            </div>
         </nav>
     );
 }

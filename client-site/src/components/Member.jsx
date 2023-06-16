@@ -1,10 +1,10 @@
-const Member = ({path, name, role}) => {
+const Member = ({ path, name, role }) => {
     return (
-        <div>
+        <div className="member">
             <img src={path} alt="member" />
-            <div>
-                <p>{name}</p>
-                <p>{role}</p>
+            <div className="member__block">
+                <p className="member__copy">{name}</p>
+                <p className="member__copy">{role}</p>
             </div>
         </div>
     );

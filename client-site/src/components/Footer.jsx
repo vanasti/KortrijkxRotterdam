@@ -3,7 +3,7 @@ import FooterCopy from "./FooterCopy";
 const Footer = () => {
     return (
         <div className="container__footer">
-            <div>
+            <div className="footer__section">
                 <FooterCopy title="Blijf op de hoogte" />
                 <div className="container__socials">
                     <Social link="https://www.instagram.com/" path="/desktop/footer/instagram.svg" social="@Kleef_K" />

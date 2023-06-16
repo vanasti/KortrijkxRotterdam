@@ -1,4 +1,4 @@
-:root{
+:root {
     --color-orange: #FF8A00;
     --color-blue: #0C6DFF;
     --color-red: #FF4392;
@@ -18,18 +18,24 @@
     --bordsize-small: .2rem;
     --bordsize-med: .4rem;
     --bordsize-large: 1rem;
+
+    --fontsize-small: 1rem;
+    --fontsize-medium: 1.5rem;
+    --fontsize-large: 2.5rem;
+
+    --scale-svg-small: .8;
 }
 
-body{
+body {
     margin: 0;
     color: var(--color-black);
 }
 
-h1{
+h1 {
     display: none;
 }
 
-.navigation{
+.navigation {
     background-color: var(--color-orange);
     color: var(--color-black);
     display: flex;
@@ -37,30 +43,33 @@ h1{
     justify-content: space-between;
     padding-inline: var(--gap-enormous);
     inline-size: 100vw;
-    top:0;
+    top: 0;
     left: 0;
 }
 
-.navigation, .container__footer{
+.navigation,
+.container__footer {
     border: var(--bordsize-small) solid var(--color-black);
 }
 
-.navigation, .theme{
+.navigation,
+.theme {
     position: fixed;
+    z-index: 1000;
 }
 
-ul{
+ul {
     display: flex;
     flex-direction: row;
     gap: var(--gap-large);
 }
 
-li > *{
+li>* {
     color: var(--color-black);
     text-decoration: none;
 }
 
-.nav__button{
+.nav__button {
     background-color: var(--color-black);
     color: var(--color-white);
     padding: var(--gap-miniscule) var(--gap-medium);
@@ -73,28 +82,28 @@ li > *{
     aspect-ratio: 1/1;
 } */
 
-.main{
+.main {
     margin-block-start: 3rem;
 }
 
-.header{
+.header {
     display: flex;
     flex-direction: column;
 }
 
-.title__blue{
+.title__blue {
     color: var(--color-blue);
 }
 
-.title__orange{
+.title__orange {
     color: var(--color-orange);
 }
 
-.title__white{
+.title__white {
     color: var(--color-white);
 }
 
-.theme{
+.theme {
     display: flex;
     flex-direction: row;
     background-color: var(--color-black);
@@ -105,40 +114,62 @@ li > *{
     align-items: center;
     border: var(--bordsize-small) solid var(--color-orange);
     right: 0;
-    top:20%;
+    top: 20%;
 }
 
-.theme > img{
+.theme>img {
     max-inline-size: 30%;
     aspect-ratio: 1/1;
 }
 
-.theme__flex > p{
+.theme__flex>p {
     color: var(--color-white);
 }
 
-.container__header{
+.container__header {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
+    background-color: var(--color-black);
     block-size: 90vh;
-    background-color: var(--color-white);
 }
 
-.quote{
+.quote::before {
+    content: url(../../public/desktop/orange.svg);
+    display: inline-block;
+    position: absolute;
+    bottom: 20%;
+    left: -30%;
+    transform: rotate(40deg);
+    overflow: hidden;
+    z-index: -1;
+}
+
+.quote {
     grid-column: 1;
     grid-row: 1/ span 3;
-    background-color: var(--color-black);
     color: var(--color-white);
     padding-inline: var(--gap-large);
+    z-index: 1;
+    font-size: var(--fontsize-large);
 }
 
-canvas{
+canvas {
     grid-column: -1;
     grid-row: 1/ span 3;
 }
 
-.button{
+.button::before,
+.button::after {
+    content: url(../../public/desktop/circlestar.svg);
+    position: inherit;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-miniscule);
+    justify-content: center;
     grid-column: 1/ span 3;
     grid-row: 3;
     font-size: 2rem;
@@ -148,25 +179,47 @@ canvas{
     padding: var(--gap-miniscule) var(--gap-small);
     margin: var(--gap-small) var(--gap-medium);
     text-decoration: none;
-        color: var(--color-black);
+    color: var(--color-black);
 }
 
-.button:hover{
+.button:hover {
     background-color: var(--color-black);
     color: var(--color-orange);
 }
 
-.scrollCta{
-    background-color: var(--color-red);
-    text-align: center;
+.scrollCta::before, .scrollCta::after{
+    content: url(../../public/desktop/tripletriangle.svg);
+    transform: scale(var(--scale-svg-small));
 }
 
-.section{
+
+.scrollCta {
+    padding-inline: var(--gap-medium);
+    display: flex;
+    background-color: var(--color-red);
+    align-items: center;
+    justify-content: space-between;
+    z-index: 2;
+}
+.scrollCta>p::before,
+.scrollCta>p::after {
+    content: url(../../public/desktop/downtriangle.svg);
+    position: inherit;
+    transform: scale(var(--scale-svg-small));
+}
+
+.scrollCta > p{
+    display: flex;
+    align-items: center;
+    gap: var(--gap-miniscule);
+}
+
+.section {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 }
 
-.container__footer{
+.container__footer {
     padding-inline: var(--gap-enormous);
     background-color: var(--color-orange);
     display: grid;
@@ -174,12 +227,12 @@ canvas{
     grid-template-rows: repeat(2, 1fr);
 }
 
-.container__socials{
+.container__socials {
     display: flex;
     gap: var(--gap-medium);
 }
 
-.footer__info{
+.footer__info {
     grid-column: 1 /span 3;
     grid-row: 2;
     place-self: center;

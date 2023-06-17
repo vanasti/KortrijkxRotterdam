@@ -10,6 +10,9 @@ export const action = () => {
 const Explain = () => {
     return (
         <>
+            <img className="detail__image" src="/graphics/eye.svg"></img>
+            <img className="detail__image" src="/graphics/sliertTwo.svg"></img>
+            <img className="detail__image" src="/graphics/sliertTwo.svg"></img>
             <Statement
                 variant={true}
                 lineOne={{

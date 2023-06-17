@@ -3,6 +3,7 @@ import { getPreset, submitSticker } from "../js/stickers";
 import PresetImage from "../components/elements/PresetImage";
 import Categorie from "../components/text/Categorie";
 import { getAnswers } from "../js/questions";
+import Progress from "../components/elements/Progress.Jsx";
 
 export const action = ({ params }) => {
     console.log('result gone');
@@ -50,6 +51,9 @@ const Result = () => {
 
     return (
         <>
+            <Progress
+                questionId={questionId}
+            />
             {!fullSticker ? (
                 <Categorie
                 content={`JIJ KOOS VOOR '${textAnswer}'`}

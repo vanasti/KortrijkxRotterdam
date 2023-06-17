@@ -1,5 +1,5 @@
 import { redirect, useLoaderData } from "react-router";
-import { getStickers } from "../js/stickers";
+import { getStickers, userToPreset } from "../js/stickers";
 import { Form } from "react-router-dom";
 import Statement from "../components/text/Statement";
 import StickerWall from "../components/containers/StickerWall";
@@ -7,19 +7,20 @@ import StickerWall from "../components/containers/StickerWall";
 export const loader = async () => {
     localStorage.clear();
     const userStickers = await getStickers();
-    return { userStickers };
+    const stickerImages = await userToPreset(userStickers);
+    return { stickerImages };
 }
 
 export const action = () => {
-    console.log("hey");
     return redirect("/explain");
 }
 
 const Home = () => {
-    const { userStickers } = useLoaderData();
-    console.log(userStickers);
+    const { stickerImages } = useLoaderData();
+    console.log(stickerImages)
     return (
         <>
+            
             <Statement
                 variant={true}
                 lineOne={{
@@ -53,11 +54,7 @@ const Home = () => {
                     },
                 }}
             />
-            <ul>
-            <StickerWall
-                userStickers={userStickers}
-            />
-            </ul>
+            <StickerWall stickers={stickerImages} />
             <Form className="button__container" method="post">
                 <button className="button" type="submit">Maak een sticker!</button>
             </Form>

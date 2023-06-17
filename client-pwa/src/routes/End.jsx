@@ -63,6 +63,8 @@ const End = () => {
           {url ? (<img className="end__image" src={url}></img>) : (<div className="error__bubble error__bubble--end"><p>?</p><p>Something went wrong while loading this sticker..</p></div>)}
           <p className="explain__text">Kleef jouw sticker op de Budabrug zodat anderen jouw mening kunnen zien of kies zelf waar!</p>
         </div>
+        <img className="end__balk" src="/graphics/balkBlue.svg"></img>
+        <img className="end__balk--orange"src="/graphics/balkOrange.svg"></img>
         
                     
         

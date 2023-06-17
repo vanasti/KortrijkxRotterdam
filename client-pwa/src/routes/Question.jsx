@@ -4,6 +4,7 @@ import { useState } from "react";
 import Categorie from "../components/text/Categorie";
 import AnswerCollection from "../components/containers/AnswerCollection";
 import Slider from "../components/elements/Slider";
+import Progress from "../components/elements/Progress.Jsx";
 
 export const action = async ({ request, params }) => {
     let formData = await request.formData();
@@ -15,7 +16,8 @@ export const action = async ({ request, params }) => {
     return redirect('result');
 }
 
-export const loader = async ({params}) => {
+export const loader = async ({ params }) => {
+    const questionId = params.questionId
     const question = await getQuestion(params.questionId);
     let categorie;
     let explain;
@@ -29,11 +31,11 @@ export const loader = async ({params}) => {
         categorie = "KLEUR";
         explain = "Deze vraag bepaalt een geheim kleurenpalet voor de stickerr";
     }
-    return { question, categorie, explain };
+    return { question, categorie, explain, questionId };
 }
 
 const Question = () => {
-    const { question, categorie, explain } = useLoaderData();
+    const { question, categorie, explain, questionId } = useLoaderData();
     const answers = question.answers;
     const [selectedAnswer, setSelectedAnswer] = useState(0);
     let canSubmit;
@@ -59,6 +61,8 @@ const Question = () => {
 
     return (
         <>  
+            <Progress
+                questionId={questionId} />
             <Categorie
                 content={categorie}
                 icon={true}

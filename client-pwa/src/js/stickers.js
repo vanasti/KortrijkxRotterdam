@@ -139,3 +139,34 @@ const createVariablesArray = (typeOfPreset, settings) => {
   return stickerVariables;
 }
 
+export const userToPreset = async (userStickers) => {
+  let stickerImages = [];
+
+  for (const sticker of userStickers) {
+    const variables = {
+      "type": "full",
+      color: sticker.color,
+      fill: sticker.fill,
+      shape: sticker.shape,
+    };
+
+    const { data } = await graphQLRequest(`query getQuestion($type: [QueryArgument], $shape: [QueryArgument],$fill:[QueryArgument],$color:[QueryArgument]) {
+  presetstickersEntries(stickerType: $type, stickerShape:$shape, stickerColorway:$color, stickerFill:$fill) {
+    ... on presetstickers_default_Entry {
+      id
+      stickerImage {
+        url
+      }
+    }
+  }
+}`, variables);
+    if (data.presetstickersEntries[0]) {
+      const image = data.presetstickersEntries[0].stickerImage[0].url;
+      stickerImages.push(image);
+    }
+    
+  }
+
+  return stickerImages;
+  
+}

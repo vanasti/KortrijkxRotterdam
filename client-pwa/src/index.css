@@ -192,7 +192,6 @@ li{
   align-items: end;
   justify-content: center;
   margin-top: 2rem;
-  height: 16vh;
 }
 
 .button__container--small{
@@ -525,3 +524,41 @@ video{
 .error__bubble--end{
   margin-bottom: 2rem;
 }
+
+.progress__questions{
+  position: absolute;
+  left: 3rem;
+}
+
+.end__balk{
+  position: absolute;
+  z-index: -1;
+  bottom: 15rem;
+}
+
+.end__balk--orange{
+  position: absolute;
+  z-index: -1;
+  transform: rotate(-45deg);
+  bottom: 5rem;
+}
+
+.detail__image{
+  position: absolute;
+}
+
+.detail__image:nth-child(1) {
+  top: 10rem;
+}
+
+.detail__image:nth-child(2){
+  left:8rem;
+  top: 45rem;
+  transform: scaleX(-1) rotate(50deg);
+ 
+}
+.detail__image:nth-child(3) {
+  right: 8rem;
+  top: 16rem;
+}
+

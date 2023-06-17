@@ -130,13 +130,13 @@ ul {
     transition: all .2s ease-in-out;
 }
 
-.navtab:hover{
+.navtab:hover {
     background-color: var(--color-black);
     color: var(--color-orange);
     transition: all .2s ease-in-out;
 }
 
-.navtab:focus{
+.navtab:focus {
     border-block-end: var(--bordsize-med) solid var(--color-black);
 }
 
@@ -144,6 +144,15 @@ ul {
     background-color: var(--color-black);
     color: var(--color-white);
     padding: var(--gap-miniscule) var(--gap-medium);
+    text-decoration: none;
+    transition: all .2s ease-in-out;
+}
+
+.nav__button:hover{
+    color: var(--color-black);
+    background-color: var(--color-orange);
+    transition: all .2s ease-in-out;
+    outline: var(--bordsize-small) solid var(--color-black);
 }
 
 .main {
@@ -253,13 +262,17 @@ canvas {
     transform: scale(var(--scale-svg-small));
 }
 
+.container__header>.button {
+    grid-column: 1 / span 2;
+    align-self: end;
+}
+
 .button {
     display: flex;
     align-items: center;
     gap: var(--gap-miniscule);
     justify-content: center;
-    grid-column: 1/ span 3;
-    grid-row: -1;
+    grid-row: 2;
     font-size: var(--fontsize-small);
     font-weight: bold;
     background-color: var(--color-orange);
@@ -276,6 +289,7 @@ canvas {
     background-color: var(--color-black);
     color: var(--color-orange);
     transition: all .2s ease-in-out;
+    outline: var(--bordsize-small) solid var(--color-orange);
 }
 
 .scrollCta::before,
@@ -440,21 +454,24 @@ canvas {
     max-block-size: 100%;
 }
 
-.member::before {
+.monster {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-block-end: -2rem;
+}
+
+.monster::before {
     content: url(/desktop/monsters/orange.svg);
-    position: absolute;
-    bottom: -30%;
     transform: scale(var(--scale-svg-small));
-
 }
 
-.member:nth-child(2)::before,
-.member:nth-child(3)::before {
-    content: url(/desktop/monsters/blue.svg);
+:nth-child(2) >.monster::before, :nth-child(3) > .monster::before{
+    content: url(/desktop/monsters/blue.svg) ;
 }
 
-.member:last-child::before {
-    content: url(/desktop/monsters/magenta.svg);
+:last-child>.monster::before{
+    content: url(/desktop/monsters/magenta.svg)
 }
 
 .member__block {
@@ -475,6 +492,46 @@ canvas {
 .member__copy:nth-child(2) {
     display: flex;
     gap: var(--gap-miniscule);
+}
+
+.video {
+    background-color: var(--color-white);
+    grid-column: 2;
+}
+
+.container__place {
+    padding-block-start: var(--gap-enormous);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--gap-small);
+    align-items: center;
+    padding-block-end: var(--gap-medium);
+}
+
+.skull {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-block-end: var(--gap-medium);
+}
+
+.skull::after {
+    content: url(/desktop/skulls.svg);
+    position: inherit;
+}
+
+.container__place>picture {
+    grid-column: 1;
+}
+
+.container__place>div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.container__place>div> :first-child {
+    color: var(--color-blue);
 }
 
 .container__footer {

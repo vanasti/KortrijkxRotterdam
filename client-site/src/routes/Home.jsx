@@ -29,7 +29,7 @@ const Home = () => {
                         <Button text="Laten we mijn sticker maken" link="stickercreation" />
                     </div>
                 </div>
-                <div className="stickerwall">
+                <div className="video">
                 </div>
                 <SecretLabel title="Stick it" copy="Plak de sticker op de Buda-brug en bekijk de looks van de andere stickers! Iedereen is uniek, maar samen zijn jullie Kortrijk." />
             </div>

@@ -4,7 +4,7 @@ import { useState } from "react";
 import Categorie from "../components/text/Categorie";
 import AnswerCollection from "../components/containers/AnswerCollection";
 import Slider from "../components/elements/Slider";
-import Progress from "../components/elements/Progress.Jsx";
+import Progress from "../components/elements/Progress.jsx";
 
 export const action = async ({ request, params }) => {
     let formData = await request.formData();

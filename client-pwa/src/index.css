@@ -72,7 +72,7 @@ li{
   list-style: none;
 }
 .preset__image{
-  width: 60%;
+  width: 50%;
   margin-top: 1rem;
 
 }
@@ -365,6 +365,7 @@ input[type=range]::-webkit-slider-thumb {
   background-image: url('/graphics/slider.svg');
   background-position: center center;
   background-repeat: no-repeat;
+  background-color: none;
   background-size: contain;
   cursor: pointer;
   -webkit-appearance: none;
@@ -435,7 +436,6 @@ video{
 .start__button{
   width: 65%;
   border: black solid 8px;
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -478,6 +478,9 @@ video{
   animation: fill 10s linear;
 }
 
+video{
+  z-index: -10;
+}
 @keyframes fill {
   from {
     width: 0%;
@@ -490,4 +493,30 @@ video{
 
 .upload__button{
   margin-top: 2rem;
+}
+
+.statement__line--double{
+  width: 34vw;
+}
+
+.end__image{
+  width: 100%;
+  margin-bottom: 4rem;
+  
+}
+
+.end__extra__container{
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #1c1c22cb;
+  border-radius: 2rem;
+  width: 50%;
+  margin-top: 2rem;
+  padding: 4rem;
+}
+
+.end__extra__container p {
+  width: 70;
 }

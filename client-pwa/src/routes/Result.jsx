@@ -26,7 +26,7 @@ export const loader = async ({params}) => {
             fullSticker = false;
         }
     })
-    const presetSticker = await getPreset(params.questionId, currentSticker)
+    const presetSticker = await getPreset(params.questionId, currentSticker);
     const answers = await getAnswers(params.questionId);
     console.log(answers);
     const userAnswer = currentSticker[params.questionId - 1];

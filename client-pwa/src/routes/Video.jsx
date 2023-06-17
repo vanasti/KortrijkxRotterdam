@@ -4,17 +4,16 @@ import { useEffect, useRef, useState } from "react";
 import { addAsset, submitSticker, submitVideo } from "../js/stickers";
 import ControlButton from "../components/elements/ControlButton.jsx";
 
+
 export const action = async ({ request }) => {
     const formData = await request.formData();
     const { video } = Object.fromEntries(formData);
     
     if (video == "false") {
         await submitSticker();
-        localStorage.clear();
     } else if (video) {
         await submitSticker();
         await submitVideo()
-        localStorage.clear();
         console.log('asset added');
     }
     return redirect('/end');
@@ -28,6 +27,7 @@ let constraints = {
 }
 
 const Video = () => {
+    console.log("getUserMedia supported.");
     const [recordingState, setRecordingState] = useState(constraints);
     const [recordedVideo, setRecordedVideo] = useState(null);
     const videoRef = useRef(null);
@@ -98,8 +98,8 @@ const Video = () => {
             chunksRef.current.push(event.data);
         };
         
-        mediaRecorderRef.current.onstop = () => {
-            const recordedBlob = new Blob(chunksRef.current, { type: 'video/webm' });
+        mediaRecorderRef.current.onstop = async () => {
+            const recordedBlob = new Blob(chunksRef.current, { type: 'video/mp4' });
             console.log(recordedBlob);
             addAsset(recordedBlob);
             setRecordedVideo(URL.createObjectURL(recordedBlob));
@@ -148,12 +148,13 @@ const Video = () => {
                                     onTouch={handleStopRecording}
                                 />
                             </>
+                            
                     )}
                 </>
             ) : (recordedVideo && recordingState.acces ? (
                     <>
                         <video autoPlay loop >
-                            <source src={recordedVideo} type="video/webm" />
+                            <source src={recordedVideo} type="video/mp4" />
                         </video>
                     </>
             ) : <p>Geen camera verbonden, contacteer STAD KORTRIJK</p>)

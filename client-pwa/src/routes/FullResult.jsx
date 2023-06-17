@@ -1,6 +1,6 @@
 import { Form, redirect } from "react-router-dom";
 import Statement from "../components/text/Statement";
-import Balk from '../components/graphics/Balk.jsx';
+
 export const action = async ({request}) => {
     let formData = await request.formData();
     const updates = Object.fromEntries(formData);
@@ -9,7 +9,6 @@ export const action = async ({request}) => {
     if (updates.video == "video") {
         return redirect('/video');
     } else if (updates.video == "none") {
-        localStorage.clear();
         return redirect('/end');
     }
 }

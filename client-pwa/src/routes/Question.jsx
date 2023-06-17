@@ -77,7 +77,7 @@ const Question = () => {
             </>
             ) : (<>
                     <p className="slider__question">{question.content}</p>
-                    <img class="sliert" src='/graphics/sliert.svg'></img>
+                    <img className="sliert" src='/graphics/sliert.svg'></img>
                     <Slider
                         onChange={handleSliderInput}
                         max={3}

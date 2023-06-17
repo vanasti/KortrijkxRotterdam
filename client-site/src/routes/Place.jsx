@@ -10,8 +10,8 @@ const Place = () => {
                 <div className="skull">
                     <div className="container__place">
                         <picture>
-                            <source media="(min-width:650px)" srcSet="/desktop/bridge.png" />
-                            <img src="/desktop/bridge.png" alt="BudaBrug" />
+                            <source media="(min-width:650px)" srcSet="/desktop/kiosk.png" />
+                            <img src="/desktop/kiosk.png" alt="BudaBrug" />
                         </picture>
                         {/* <Label text="Overleiestraat 1, 8500 KORTRIJK" /> */}
                         <div>

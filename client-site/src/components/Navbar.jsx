@@ -18,7 +18,7 @@ const Navbar = () => {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink className="navtab" to={"stickercreation"} className="nav__button">
+                        <NavLink to={"stickercreation"} className="nav__button">
                             Maak mijn sticker
                         </NavLink>
                     </li>

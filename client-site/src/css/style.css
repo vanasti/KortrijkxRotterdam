@@ -332,6 +332,14 @@ canvas {
     align-items: center;
 }
 
+.section > picture::before{
+    content: url(/desktop/like.svg);
+    position: absolute;
+    transform: scale(var(--scale-svg-small)) rotate(-15deg);
+    top: inherit;
+    left: 53%;
+}
+
 .section--dark {
     background-color: var(--color-black);
     grid-template-rows: 60vh 8vh;
@@ -522,6 +530,15 @@ canvas {
 
 .container__place>picture {
     grid-column: 1;
+}
+
+.container__place > picture::before{
+    content: url(/desktop/location.svg);
+    position: absolute;
+    transform: scale(var(--scale-svg-small));
+    top: 2%;
+    left: 49%;
+
 }
 
 .container__place>div {

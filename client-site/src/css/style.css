@@ -25,6 +25,7 @@
     --fontsize-large: 2.5rem;
     --fontsize-extralarge: 4rem;
     --scale-svg-small: .8;
+    --scale-svg-medium: .4;
 }
 
 html {
@@ -50,6 +51,39 @@ h2 {
     letter-spacing: .1rem;
     margin: 0;
     font-size: 4rem;
+}
+
+.error {
+    background-color: var(--color-orange);
+    block-size: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.error>h2::before,
+.error>h2::after {
+    content: url(/desktop/danger.svg);
+    transform: scale(var(--scale-svg-medium));
+}
+
+.error>h2 {
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.error>.button {
+    background-color: var(--color-black);
+    color: var(--color-orange);
+    transition: all .2s ease-in-out;
+}
+
+.error>.button:hover {
+    background-color: var(--color-orange);
+    color: var(--color-black);
+    transition: all .2s ease-in-out;
 }
 
 .title {
@@ -126,6 +160,7 @@ li>* {
 .theme>img {
     max-inline-size: 30%;
     aspect-ratio: 1/1;
+    animation: rotation 8s infinite linear;
 }
 
 .theme__flex>p {
@@ -222,11 +257,13 @@ canvas {
     margin: var(--gap-small) var(--gap-medium);
     text-decoration: none;
     color: var(--color-black);
+    transition: all .2s ease-in-out;
 }
 
 .button:hover {
     background-color: var(--color-black);
     color: var(--color-orange);
+    transition: all .2s ease-in-out;
 }
 
 .scrollCta::before,
@@ -471,4 +508,14 @@ canvas {
 
 .terms--outline {
     border-inline-end: 2px solid var(--color-black);
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }

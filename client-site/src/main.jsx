@@ -9,24 +9,31 @@ import Root from './layouts/rootLayout';
 import Home from './routes/Home';
 import Place from './routes/Place';
 import Stickercreation from './routes/CreateSticker';
+import Error from './routes/Error';
 //import all routes in here
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    children:[
+    errorElement: <Error />,
+    children: [
       {
-        index:true,
-        element: <Home />,
-      },
-      {
-        path: "place",
-        element: <Place />,
-      },
-      {
-        path: "stickercreation",
-        element: <Stickercreation />
+        errorElement: <Error />,
+        children: [
+          {
+            index: true,
+            element: <Home />,
+          },
+          {
+            path: "place",
+            element: <Place />,
+          },
+          {
+            path: "stickercreation",
+            element: <Stickercreation />
+          }
+        ]
       }
     ]
   },

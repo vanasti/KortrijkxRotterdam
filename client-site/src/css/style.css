@@ -123,9 +123,21 @@ ul {
     gap: var(--gap-large);
 }
 
-li>* {
+.navtab {
     color: var(--color-black);
     text-decoration: none;
+    padding: var(--gap-miniscule) var(--gap-small);
+    transition: all .2s ease-in-out;
+}
+
+.navtab:hover{
+    background-color: var(--color-black);
+    color: var(--color-orange);
+    transition: all .2s ease-in-out;
+}
+
+.navtab:focus{
+    border-block-end: var(--bordsize-med) solid var(--color-black);
 }
 
 .nav__button {

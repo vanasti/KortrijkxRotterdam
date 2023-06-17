@@ -1,4 +1,3 @@
-import Sticker from "../elements/Sticker";
 import React, { useEffect, useRef } from 'react'
 
 const StickerWall = ({ stickers }) => {

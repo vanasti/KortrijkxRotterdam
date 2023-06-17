@@ -1,16 +1,32 @@
-import { Link } from "react-router-dom";
 import Quote from "../components/Quote";
 import Button from "../components/Button";
 import ScrollCta from "../components/ScrollCta";
 import BodyCopy from "../components/BodyCopy";
 import SecretLabel from "../components/SecretLabel";
+import Canvas from "../components/Canvas";
+import { useLoaderData } from "react-router";
+import { getLastVideo, getStickers, userToPreset } from "../js/stickers";
+
+
+export const loader = async () => {
+    const userStickers = await getStickers();
+    const stickerImages = await userToPreset(userStickers);
+    const videoUrl = await getLastVideo();
+    return { stickerImages, videoUrl }
+}
+
 const Home = () => {
+    const { stickerImages, videoUrl } = useLoaderData();
     return (
         <>
             <div className="header">
                 <div className="container__header">
-                    <Quote className="quote" lineOne="Maak een sticker" lineTwo="Met jouw" lineThree="Eigen mening" />
-                    <div className="stickerwall"></div>
+                    <div className="container__subheader">
+                        <Quote className="quote" lineOne="Maak een sticker" lineTwo="Met jouw" lineThree="Eigen mening" />
+                        <div className="stickerwall">
+                            <Canvas stickers={stickerImages} />
+                        </div>
+                    </div>
                     <Button text="Ik wil mijn sticker maken" link="stickercreation" />
                 </div>
                 <ScrollCta text="Hoe werkt het?" />
@@ -28,8 +44,10 @@ const Home = () => {
                     <div>
                         <Button text="Laten we mijn sticker maken" link="stickercreation" />
                     </div>
+                   
                 </div>
                 <div className="video">
+                    <video autoPlay controls muted loop className="video__project" src={videoUrl}></video>
                 </div>
                 <SecretLabel title="Stick it" copy="Plak de sticker op de Buda-brug en bekijk de looks van de andere stickers! Iedereen is uniek, maar samen zijn jullie Kortrijk." />
             </div>

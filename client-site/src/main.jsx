@@ -6,7 +6,7 @@ import {
 import './css/reset.css';
 import './css/style.css';
 import Root from './layouts/rootLayout';
-import Home from './routes/Home';
+import Home, {loader as homeLoader} from './routes/Home';
 import Place from './routes/Place';
 import Stickercreation from './routes/CreateSticker';
 import Error from './routes/Error';
@@ -24,6 +24,7 @@ const router = createBrowserRouter([
           {
             index: true,
             element: <Home />,
+            loader: homeLoader
           },
           {
             path: "place",

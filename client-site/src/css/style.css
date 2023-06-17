@@ -189,10 +189,14 @@ ul {
 }
 
 .container__header {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    block-size: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    max-width: 80%;
+    margin: 0 auto;
+    height: 88vh;
+    gap: 2rem;
 }
 
 .quote::before {
@@ -217,12 +221,13 @@ ul {
     grid-column: 1;
     grid-row: 1/ span 3;
     color: var(--color-white);
-    padding-inline: var(--gap-large);
     z-index: 1;
     font-size: var(--fontsize-large);
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 2rem;
+    width: 70%;
 }
 
 .quote>p {
@@ -260,11 +265,6 @@ canvas {
     content: url(/desktop/circlestar.svg);
     position: inherit;
     transform: scale(var(--scale-svg-small));
-}
-
-.container__header>.button {
-    grid-column: 1 / span 2;
-    align-self: end;
 }
 
 .button {
@@ -332,6 +332,7 @@ canvas {
     align-items: center;
 }
 
+
 .section > picture::before{
     content: url(/desktop/like.svg);
     position: absolute;
@@ -370,9 +371,10 @@ canvas {
 
 
 .stickerwall {
-    grid-column: 2;
-    grid-row: 1 / span 2;
-    background-color: var(--color-white);
+    border: solid var(--color-orange) 8px;
+    background-color: var(--color-blue);
+    border-radius: 3rem;
+    margin-top: 7rem;
 }
 
 .secretlabel {
@@ -503,7 +505,7 @@ canvas {
 }
 
 .video {
-    background-color: var(--color-white);
+    margin-left: 4rem;
     grid-column: 2;
 }
 
@@ -604,4 +606,22 @@ canvas {
     to {
         transform: rotate(360deg);
     }
+}
+
+.stickerwall{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+
+.container__subheader {
+    display: flex;
+    
+}
+
+.video__project{
+    width: 70%;
+    
 }

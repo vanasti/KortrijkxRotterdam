@@ -11,6 +11,7 @@ export const loader = async () => {
     return { stickerImages };
 }
 
+
 export const action = () => {
     return redirect("/explain");
 }

@@ -14,7 +14,6 @@ export const action = async ({ request }) => {
     } else if (video) {
         await submitSticker();
         await submitVideo()
-        console.log('asset added');
     }
     return redirect('/end');
 }
@@ -59,7 +58,7 @@ const Video = () => {
         })
     }
 
-    const sourceUpdate = async (stream) => {
+    const sourceUpdate = async () => {
         let track = await recordingState.stream.getVideoTracks()[0];
         setRecordingState({
             ...recordingState,
@@ -77,6 +76,7 @@ const Video = () => {
             } else {
                 try {
                     videoRef.current.srcObject = recordingState.stream;
+                    console.log('happens');
                 } catch (err) {
                     console.log(err);
                 }
@@ -98,8 +98,8 @@ const Video = () => {
             chunksRef.current.push(event.data);
         };
         
-        mediaRecorderRef.current.onstop = async () => {
-            const recordedBlob = new Blob(chunksRef.current, { type: 'video/mp4' });
+        mediaRecorderRef.current.onstop = () => {
+            const recordedBlob = new Blob(chunksRef.current, { type: 'video/webm' });
             console.log(recordedBlob);
             addAsset(recordedBlob);
             setRecordedVideo(URL.createObjectURL(recordedBlob));
@@ -123,6 +123,7 @@ const Video = () => {
             mediaRecorderRef.current.stop();
         }
     }
+    console.log(recordedVideo);
     return (
         <>
             {recordingState.acces && !recordedVideo ? (
@@ -154,7 +155,7 @@ const Video = () => {
             ) : (recordedVideo && recordingState.acces ? (
                     <>
                         <video autoPlay loop >
-                            <source src={recordedVideo} type="video/mp4" />
+                            <source src={recordedVideo} type="video/webm" />
                         </video>
                     </>
             ) : <p>Geen camera verbonden, contacteer STAD KORTRIJK</p>)

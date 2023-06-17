@@ -3,7 +3,7 @@ import { getPreset, submitSticker } from "../js/stickers";
 import PresetImage from "../components/elements/PresetImage";
 import Categorie from "../components/text/Categorie";
 import { getAnswers } from "../js/questions";
-import Progress from "../components/elements/Progress.Jsx";
+import Progress from "../components/elements/Progress.jsx";
 
 export const action = ({ params }) => {
     console.log('result gone');

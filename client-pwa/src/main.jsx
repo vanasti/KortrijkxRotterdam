@@ -4,6 +4,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import './reset.css'
 import './index.css'
 import Root from './layouts/rootLayout';
 import Home, { loader as homeLoader, action as homeAction } from './routes/Home';
@@ -11,7 +12,7 @@ import Explain, { action as explainAction } from './routes/Explain';
 import Question, { action as questionAction, loader as questionLoader } from './routes/Question';
 import Result, { action as resultAction, loader as resultLoader } from './routes/Result';
 import FullResult, { action as fullResultAction } from './routes/FullResult';
-import End from './routes/End';
+import End, { loader as endAction } from './routes/End';
 import Video, { action as videoAction } from './routes/Video';
 
 const router = createBrowserRouter([
@@ -50,6 +51,7 @@ const router = createBrowserRouter([
       {
         path: "end",
         element: <End />,
+        loader: endAction
       },
        {
         path: "video",

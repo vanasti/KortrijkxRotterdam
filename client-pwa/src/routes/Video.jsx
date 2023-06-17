@@ -4,18 +4,16 @@ import { useEffect, useRef, useState } from "react";
 import { addAsset, submitSticker, submitVideo } from "../js/stickers";
 import ControlButton from "../components/elements/ControlButton.jsx";
 
+
 export const action = async ({ request }) => {
     const formData = await request.formData();
     const { video } = Object.fromEntries(formData);
     
     if (video == "false") {
         await submitSticker();
-        localStorage.clear();
     } else if (video) {
         await submitSticker();
         await submitVideo()
-        localStorage.clear();
-        console.log('asset added');
     }
     return redirect('/end');
 }
@@ -28,6 +26,7 @@ let constraints = {
 }
 
 const Video = () => {
+    console.log("getUserMedia supported.");
     const [recordingState, setRecordingState] = useState(constraints);
     const [recordedVideo, setRecordedVideo] = useState(null);
     const videoRef = useRef(null);
@@ -59,7 +58,7 @@ const Video = () => {
         })
     }
 
-    const sourceUpdate = async (stream) => {
+    const sourceUpdate = async () => {
         let track = await recordingState.stream.getVideoTracks()[0];
         setRecordingState({
             ...recordingState,
@@ -77,6 +76,7 @@ const Video = () => {
             } else {
                 try {
                     videoRef.current.srcObject = recordingState.stream;
+                    console.log('happens');
                 } catch (err) {
                     console.log(err);
                 }
@@ -115,7 +115,7 @@ const Video = () => {
             recording: true,
         });
 
-        setTimeout(handleStopRecording, 5000);
+        setTimeout(handleStopRecording, 10000);
     }
 
     const handleStopRecording = () => {
@@ -123,24 +123,33 @@ const Video = () => {
             mediaRecorderRef.current.stop();
         }
     }
+    console.log(recordedVideo);
     return (
         <>
-            
             {recordingState.acces && !recordedVideo ? (
                 <>
                     <Camera
                         videoSource={videoRef}
                     />
+                    <div className="progress-bar"></div>
                     {!recordingState.recording ? (
                         <ControlButton
                             onTouch={handleStartRecording}
                             type="start recording"
+                            className="start__button"
                         />
                     ) : (
-                        <ControlButton
-                            onTouch={handleStopRecording}
-                            type="Stop Recording"
-                        />
+                            
+                            <>
+                                <div className="progress">
+                                    <div className="bar"></div>
+                                </div>
+                                <ControlButton
+                                    className="stop__button"
+                                    onTouch={handleStopRecording}
+                                />
+                            </>
+                            
                     )}
                 </>
             ) : (recordedVideo && recordingState.acces ? (
@@ -149,17 +158,23 @@ const Video = () => {
                             <source src={recordedVideo} type="video/webm" />
                         </video>
                     </>
-            ) : <p>No camera detected, please connect one</p>)
+            ) : <p>Geen camera verbonden, contacteer STAD KORTRIJK</p>)
             }
             {!recordedVideo ? (
                 <Form method="post">
                     <input type="hidden" name="video" value="false"/>
-                    <button type="submit">Ik wil toch geen video maken</button>
+                    <button className="neg__button" type="submit">Ik wil toch geen video maken</button>
                 </Form>
-            ) : <Form method="post">
-                    <input type="hidden" name="video" value={recordedVideo} />
-                    <button type="submit">Video uploaden</button>
-                </Form>}
+            ) : (<>
+                    <Form method="post">
+                        <input type="hidden" name="video" value={recordedVideo} />
+                        <button className="upload__button" type="submit">Video uploaden</button>
+                    </Form>
+                    <Form method="post">
+                        <input type="hidden" name="video" value="false"/>
+                        <button className="neg__button" type="submit">Ik wil toch geen video maken</button>
+                    </Form>
+                </>)}
             
         </>
     )

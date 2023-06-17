@@ -1,7 +1,9 @@
 import { Form, redirect, useLoaderData } from "react-router-dom";
 import { getPreset, submitSticker } from "../js/stickers";
 import PresetImage from "../components/elements/PresetImage";
-import StickerValues from "../components/text/StickerValues";
+import Categorie from "../components/text/Categorie";
+import { getAnswers } from "../js/questions";
+import Progress from "../components/elements/Progress.Jsx";
 
 export const action = ({ params }) => {
     console.log('result gone');
@@ -11,48 +13,71 @@ export const action = ({ params }) => {
     } else {
         submitSticker();
         return redirect('/fullResult');
-        
     }
 }
 
 export const loader = async ({params}) => {
     const currentSticker = JSON.parse(localStorage.getItem("settings"));
+    
     let fullSticker = true;
     currentSticker.map((sticker) => {
         if (sticker == null) {
             fullSticker = false;
         }
     })
-    const presetSticker = await getPreset(params.questionId, currentSticker)
-    return { currentSticker, fullSticker, presetSticker };
+    const presetSticker = await getPreset(params.questionId, currentSticker);
+    const answers = await getAnswers(params.questionId);
+    console.log(answers);
+    const userAnswer = currentSticker[params.questionId - 1];
+    const textAnswer = answers[userAnswer - 1].answers;
+    const questionId = params.questionId;
+    return { fullSticker, presetSticker, textAnswer, questionId };
 }
 
 const Result = () => {
-    const { currentSticker, fullSticker, presetSticker } = useLoaderData();
-    console.log(presetSticker ,currentSticker);
+    const { fullSticker, presetSticker, textAnswer, questionId } = useLoaderData();    
     let presetImage;
     if (presetSticker && presetSticker.stickerImage[0]) {
         presetImage = presetSticker.stickerImage[0].url;
     }
-    
+    let extraContent;
+    if (questionId == 1) {
+        extraContent = "Dit is jouw vorm van de sticker. Bij de volgende vraag zal jij een geheim patroon krijgen op basis van jouw antwoord!"
+    } else if (questionId == 2) {
+        extraContent = 'Wat een uniek patroon voor jouw sticker! Maar er mist nog kleur! Voeg dit toe a.d.h.v. het beantwoorden van de volgende vraag!'
+    } else {
+        extraContent = "Jouw sticker is klaar om geprint te worden!"
+    }
+
     return (
         <>
+            <Progress
+                questionId={questionId}
+            />
+            {!fullSticker ? (
+                <Categorie
+                content={`JIJ KOOS VOOR '${textAnswer}'`}
+                icon={false}
+            />
+            ) : (
+                <Categorie
+                content="WOW, WAT EEN MENING!"
+                icon={false}
+            />)}  
+            
             <PresetImage
                 preset={{ image: presetImage, sticker: presetSticker}}
             />
-            <StickerValues
-                currentSticker={currentSticker}
-            />
+            <p className="explain__text result__text">{extraContent}</p>
             {!fullSticker ? (
                 < Form method="post">
-                    <button method="post">Next question</button>
+                    <button method="post">Volgende vraag</button>
                 </Form >
             ) : (
                 <>
-                    <p>Print time!</p>
-                        < Form method="post">
-                            <button method="post">Print my sticker</button>
-                        </Form >
+                    < Form method="post">
+                        <button method="post">Print my sticker</button>
+                    </Form >
                 </>)}       
         </>
     )

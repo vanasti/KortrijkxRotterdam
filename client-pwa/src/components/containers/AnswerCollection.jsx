@@ -2,9 +2,9 @@ import AnswerOption from "../elements/AnswerOption";
 
 const AnswerCollection = ({ answers, selectedAnswer, onTouch}) => {
     return (
-        <ul>
+        <ul className="answers__container">
             {answers.map((answer, index) => (
-                <li key={index}>
+                <li className="answer__container" key={index}>
                     <AnswerOption
                         answer={answer}
                         selected={(index + 1) == selectedAnswer ? true : null}

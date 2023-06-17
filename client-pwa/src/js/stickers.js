@@ -1,4 +1,5 @@
 import { graphQLRequest } from "./graphql"
+import { createFFmpeg, fetchFile } from '@ffmpeg/ffmpeg';
 
 const sendDataToServer = async (fd) => {
   let data;
@@ -91,8 +92,8 @@ export const getStickers = async () => {
 
 export const getPreset = async (step, settings) => {
   const typeOfPreset = stepToPreset(step);
+  console.log(settings);
   const stickerVariables = createVariablesArray(typeOfPreset, settings); 
-
   const { data } = await graphQLRequest(`query getQuestion($type: [QueryArgument], $shape: [QueryArgument],$fill:[QueryArgument],$color:[QueryArgument]) {
   presetstickersEntries(stickerType: $type, stickerShape:$shape, stickerColorway:$color, stickerFill:$fill) {
     ... on presetstickers_default_Entry {
@@ -104,6 +105,8 @@ export const getPreset = async (step, settings) => {
   }
 }
 `, stickerVariables);
+  
+  console.log(data);
   return data.presetstickersEntries[0];
 }
 
@@ -132,5 +135,38 @@ const createVariablesArray = (typeOfPreset, settings) => {
   if (settings[2]) {
     stickerVariables["color"] = `colorway${settings[2]}`;
   }
+  console.log(stickerVariables);
   return stickerVariables;
+}
+
+export const userToPreset = async (userStickers) => {
+  let stickerImages = [];
+
+  for (const sticker of userStickers) {
+    const variables = {
+      "type": "full",
+      color: sticker.color,
+      fill: sticker.fill,
+      shape: sticker.shape,
+    };
+
+    const { data } = await graphQLRequest(`query getQuestion($type: [QueryArgument], $shape: [QueryArgument],$fill:[QueryArgument],$color:[QueryArgument]) {
+  presetstickersEntries(stickerType: $type, stickerShape:$shape, stickerColorway:$color, stickerFill:$fill) {
+    ... on presetstickers_default_Entry {
+      id
+      stickerImage {
+        url
+      }
+    }
+  }
+}`, variables);
+    if (data.presetstickersEntries[0]) {
+      const image = data.presetstickersEntries[0].stickerImage[0].url;
+      stickerImages.push(image);
+    }
+    
+  }
+
+  return stickerImages;
+  
 }

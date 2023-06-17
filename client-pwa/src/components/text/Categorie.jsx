@@ -1,7 +1,7 @@
-const Categorie = ({ content }) => {
+const Categorie = ({ content, icon}) => {
     console.log(content);
     return (
-        <h1>{content}</h1>
+        <p className={icon ? "categorie" : "result__page"}>{content}</p>
     )
 }
 

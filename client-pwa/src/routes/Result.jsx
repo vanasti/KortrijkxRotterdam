@@ -1,7 +1,6 @@
 import { Form, redirect, useLoaderData } from "react-router-dom";
 import { getPreset, submitSticker } from "../js/stickers";
 import PresetImage from "../components/elements/PresetImage";
-import StickerValues from "../components/text/StickerValues";
 import Categorie from "../components/text/Categorie";
 import { getAnswers } from "../js/questions";
 
@@ -13,7 +12,6 @@ export const action = ({ params }) => {
     } else {
         submitSticker();
         return redirect('/fullResult');
-        
     }
 }
 

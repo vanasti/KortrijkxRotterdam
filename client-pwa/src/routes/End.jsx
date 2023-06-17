@@ -13,7 +13,10 @@ export const loader = async () => {
 const End = () => {
   const navigate = useNavigate();
   const { presetSticker } = useLoaderData();
-  const url = presetSticker.stickerImage[0].url
+  let url = null;
+  if (presetSticker && presetSticker.stickerImage[0]) {
+    url = presetSticker.stickerImage[0].url
+  }
     useEffect(() => {
     // setTimeout(() => {
     //   navigate('/', { replace: true });
@@ -57,7 +60,7 @@ const End = () => {
                 }}
           />
           <div className="end__extra__container">
-          <img className="end__image" src={url}></img>
+          {url ? (<img className="end__image" src={url}></img>) : (<div className="error__bubble error__bubble--end"><p>?</p><p>Something went wrong while loading this sticker..</p></div>)}
           <p className="explain__text">Kleef jouw sticker op de Budabrug zodat anderen jouw mening kunnen zien of kies zelf waar!</p>
         </div>
         

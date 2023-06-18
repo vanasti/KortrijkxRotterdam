@@ -49,7 +49,7 @@ const Home = () => {
 
                 </div>
                 <div className="video">
-                    <video src={videoUrl}></video>
+                    {videoUrl ? (<video className="video__project" autoPlay loop controls muted src={videoUrl}></video>) : (<div className="no__video"><p className="no__video__error">Error ... No video "nog aanpassen</p></div>)}
                 </div>
                 <SecretLabel title="Stick it" copy="Plak de sticker op de Buda-brug en bekijk de looks van de andere stickers! Iedereen is uniek, maar samen zijn jullie Kortrijk." />
             </div>

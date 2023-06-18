@@ -625,3 +625,16 @@ canvas {
     width: 70%;
     
 }
+
+.no__video{
+    background-color: blue;
+    height: 20vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.no__video__error{
+
+}

@@ -57,12 +57,12 @@ export const getLastVideo = async () => {
     }
   }
 }`);
-  
-  
     
-    const videoWithUrl = data.videosEntries.filter(item => item.video); 
+  const videoWithUrl = data.videosEntries.filter(item => item.video); 
   const lastVideo = videoWithUrl[0];
-  if (videoWithUrl.lengt > 1) {
+  console.log(videoWithUrl);
+  if (videoWithUrl.length > 0) {
+    console.log('video');
     return lastVideo.video
   } else {
     return null;

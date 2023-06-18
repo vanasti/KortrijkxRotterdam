@@ -5,7 +5,7 @@ const Navbar = () => {
     return (
         <nav className="navigation">
             <div>
-                <p>logo</p>
+                <img src="/desktop/logo.svg" alt="kleef" />
                 <ul>
                     <li>
                         <NavLink className="navtab" to={"/"}>

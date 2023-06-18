@@ -42,14 +42,17 @@ const Home = () => {
             </div>
             <div className="section section--dark">
                 <div className="block__dark">
-                    <BodyCopy title="Hoe werkt het" copy="Een invasie bestaat uit 3 vragen. Elk beslissen ze de vorm, het patroon en de kleurschakering. Met het beantwoorden van deze vragen ontwikkel je een sticker geïllustreerd door een lokale artiest in Kortrijk." secondcopy="Wil jij er ook eentje maken?" />
+                    <BodyCopy title="Hoe werkt het" copy="Een invasie bestaat uit 3 vragen. Elk beslissen ze de vorm, het patroon en de kleurschakering. Met het beantwoorden van deze vragen ontwikkel je een sticker geïllustreerd door een lokale artiest in Kortrijk. Wil jij jouw volledige mening uiten? Dan kan dit via een video!" secondcopy="Wil jij er ook eentje maken?" />
                     <div>
                         <Button text="Laten we mijn sticker maken" link="stickercreation" />
                     </div>
 
                 </div>
-                <div className="video">
-                    {videoUrl ? (<video className="video__project" autoPlay loop controls muted src={videoUrl}></video>) : (<div className="no__video"><p className="no__video__error">Error ... No video "nog aanpassen</p></div>)}
+                <div className="container__video">
+                    <div className="video">
+                        {videoUrl ? (<video className="video__project" autoPlay loop controls muted src={videoUrl}></video>) : (<div className="no__video"><p className="no__video__error">Aww, een alien heeft de video ontvoerd...</p></div>)}
+                        <div className="screen"></div>
+                    </div>
                 </div>
                 <SecretLabel title="Stick it" copy="Plak de sticker op de Buda-brug en bekijk de looks van de andere stickers! Iedereen is uniek, maar samen zijn jullie Kortrijk." />
             </div>

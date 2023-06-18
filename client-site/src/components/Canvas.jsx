@@ -5,8 +5,8 @@ const Canvas = ({ stickers }) => {
     useEffect(() => {
         const canvas = canvasRef.current
         const context = canvas.getContext('2d')
-        context.canvas.width = 700;
-        context.canvas.height = 400;
+        context.canvas.width = window.innerWidth /2;
+        context.canvas.height = window.innerHeight/2;
         if (stickers && stickers.length) {
             stickers.forEach(url => {
                 const image = new Image();

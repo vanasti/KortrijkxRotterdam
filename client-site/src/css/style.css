@@ -3,6 +3,7 @@
     --color-blue: #0C6DFF;
     --color-red: #FF4392;
     --color-white: #fff;
+    --color-ofwhite: #f6f6f3;
     --color-black: #0F0F0F;
 
     --gap-miniscule: .5rem;
@@ -106,6 +107,11 @@ h2 {
     justify-content: space-between;
 }
 
+.navigation>div>img {
+    max-inline-size: 4rem;
+    aspect-ratio: auto;
+}
+
 .navigation,
 .container__footer {
     border: var(--bordsize-small) solid var(--color-black);
@@ -148,7 +154,7 @@ ul {
     transition: all .2s ease-in-out;
 }
 
-.nav__button:hover{
+.nav__button:hover {
     color: var(--color-black);
     background-color: var(--color-orange);
     transition: all .2s ease-in-out;
@@ -190,13 +196,9 @@ ul {
 
 .container__header {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-flow: column;
-    max-width: 80%;
-    margin: 0 auto;
-    height: 88vh;
-    gap: 2rem;
 }
 
 .quote::before {
@@ -205,7 +207,7 @@ ul {
     transform: scale(var(--scale-svg-small)) rotate(-15deg);
 }
 
-.quote::after {
+.header::after {
     content: url(/desktop/orange.svg);
     display: inline-block;
     position: absolute;
@@ -219,7 +221,6 @@ ul {
 .quote {
     align-self: center;
     grid-column: 1;
-    grid-row: 1/ span 3;
     color: var(--color-white);
     z-index: 1;
     font-size: var(--fontsize-large);
@@ -228,6 +229,7 @@ ul {
     align-items: center;
     padding: 2rem;
     width: 70%;
+    margin-inline-start: var(--gap-enormous);
 }
 
 .quote>p {
@@ -333,7 +335,7 @@ canvas {
 }
 
 
-.section > picture::before{
+.section>picture::before {
     content: url(/desktop/like.svg);
     position: absolute;
     transform: scale(var(--scale-svg-small)) rotate(-15deg);
@@ -345,6 +347,7 @@ canvas {
     background-color: var(--color-black);
     grid-template-rows: 60vh 8vh;
     block-size: 76vh;
+    align-items: center;
 }
 
 .block__dark {
@@ -354,7 +357,8 @@ canvas {
     display: flex;
     flex-direction: column;
     align-items: start;
-    padding-inline-start: var(--gap-medium);
+    padding-inline-start: var(--gap-enormous);
+    max-inline-size: 30rem;
 }
 
 .block__dark> :nth-child(2)>.button {
@@ -371,10 +375,7 @@ canvas {
 
 
 .stickerwall {
-    border: solid var(--color-orange) 8px;
-    background-color: var(--color-blue);
-    border-radius: 3rem;
-    margin-top: 7rem;
+    background-color: var(--color-ofwhite);
 }
 
 .secretlabel {
@@ -476,11 +477,12 @@ canvas {
     transform: scale(var(--scale-svg-small));
 }
 
-:nth-child(2) >.monster::before, :nth-child(3) > .monster::before{
-    content: url(/desktop/monsters/blue.svg) ;
+:nth-child(2)>.monster::before,
+:nth-child(3)>.monster::before {
+    content: url(/desktop/monsters/blue.svg);
 }
 
-:last-child>.monster::before{
+:last-child>.monster::before {
     content: url(/desktop/monsters/magenta.svg)
 }
 
@@ -504,10 +506,31 @@ canvas {
     gap: var(--gap-miniscule);
 }
 
-.video {
-    margin-left: 4rem;
+.container__video {
+    margin-block-start: var(--gap-enormous);
     grid-column: 2;
+    display: flex;
+    flex-direction: column;
 }
+
+.container__video::after{
+    content: url(/desktop/popcorn.svg);
+    margin-block-start: -5rem;
+}
+
+.video {
+    display: flex;
+    margin-inline: var(--gap-small);
+
+    border: var(--bordsize-small) solid var(--color-white);
+}
+
+.screen {
+    width: 3rem;
+    background-color: var(--color-orange);
+    border: var(--bordsize-small) solid var(--color-black);
+}
+
 
 .container__place {
     padding-block-start: var(--gap-enormous);
@@ -534,7 +557,7 @@ canvas {
     grid-column: 1;
 }
 
-.container__place > picture::before{
+.container__place>picture::before {
     content: url(/desktop/location.svg);
     position: absolute;
     transform: scale(var(--scale-svg-small));
@@ -608,26 +631,27 @@ canvas {
     }
 }
 
-.stickerwall{
+.stickerwall {
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
 }
 
 
 .container__subheader {
-    display: flex;
-    
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }
 
-.video__project{
+.video__project {
     width: 70%;
-    
+    border: var(--bordsize-small) solid var(--color-black);
 }
 
-.no__video{
-    background-color: blue;
+.no__video {
+    border: var(--bordsize-small) solid var(--color-black);
+    background-color: var(--color-black);
     height: 20vw;
     display: flex;
     align-items: center;
@@ -635,6 +659,14 @@ canvas {
     width: 100%;
 }
 
-.no__video__error{
+.no__video__error {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--color-white);
+}
 
+.no__video__error::before{
+    content: url(/desktop/ufo.svg);
+    transform: scale(var(--scale-svg-small));
 }

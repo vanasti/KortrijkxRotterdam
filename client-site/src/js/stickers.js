@@ -57,8 +57,14 @@ export const getLastVideo = async () => {
     }
   }
 }`);
-    console.log(data);
+  
+  
+    
     const videoWithUrl = data.videosEntries.filter(item => item.video); 
-    const lastVideo = videoWithUrl[0];
+  const lastVideo = videoWithUrl[0];
+  if (videoWithUrl.lengt > 1) {
     return lastVideo.video
+  } else {
+    return null;
+  }
 }

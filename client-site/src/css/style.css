@@ -521,12 +521,10 @@ canvas {
 .video {
     display: flex;
     margin-inline: var(--gap-small);
-
-    border: var(--bordsize-small) solid var(--color-white);
 }
 
 .screen {
-    width: 3rem;
+    min-inline-size: 3rem;
     background-color: var(--color-orange);
     border: var(--bordsize-small) solid var(--color-black);
 }
@@ -645,8 +643,8 @@ canvas {
 }
 
 .video__project {
-    width: 70%;
     border: var(--bordsize-small) solid var(--color-black);
+    max-inline-size: 70%;
 }
 
 .no__video {

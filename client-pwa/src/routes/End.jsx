@@ -18,9 +18,9 @@ const End = () => {
     url = presetSticker.stickerImage[0].url
   }
     useEffect(() => {
-    // setTimeout(() => {
-    //   navigate('/', { replace: true });
-    // }, 7000);
+    setTimeout(() => {
+      navigate('/', { replace: true });
+    }, 7000);
   }, []);
 
 

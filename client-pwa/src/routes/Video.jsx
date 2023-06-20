@@ -148,6 +148,7 @@ const Video = () => {
                                 <ControlButton
                                     className="stop__button"
                                     onTouch={handleStopRecording}
+                                    onClick={handleStopRecording}
                                 />
                             </>
                             
@@ -168,7 +169,7 @@ const Video = () => {
                 </Form>
             ) : (<>
                     <Form method="post">
-                        <input type="hidden" name="video" value={recordedVideo} />
+                        <input type="hidden" name="video" value={recordedVideo}/>
                         <button className="upload__button" type="submit">Video uploaden</button>
                     </Form>
                     <Form method="post">

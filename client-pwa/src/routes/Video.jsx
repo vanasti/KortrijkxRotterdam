@@ -135,6 +135,7 @@ const Video = () => {
                     {!recordingState.recording ? (
                         <ControlButton
                             onTouch={handleStartRecording}
+                            onClick={handleStartRecording}
                             type="start recording"
                             className="start__button"
                         />

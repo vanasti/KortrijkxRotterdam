@@ -4,6 +4,7 @@ const ControlButton = ({onTouch, type,className}) => {
             <div 
                 className={className}
                 onTouchStart={onTouch}
+                onClick={onClick}
             >
                 <p>{type}</p>
                 {type !== "start recording" ? (

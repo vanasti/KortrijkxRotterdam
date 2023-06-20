@@ -1,4 +1,4 @@
-const ControlButton = ({onTouch, type,className}) => {
+const ControlButton = ({onTouch, type,className, onClick}) => {
     return (
         <>
             <div 
